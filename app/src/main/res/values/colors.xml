@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#EB5757</color>
+    <color name="transparent">#80000000</color>
+    <color name="splash_background">#E5E5E5</color>
+    <color name="colorStroke">#DCDCDC</color>
+    <color name="colorStrokePrimary">#CC8650</color>
+    <color name="colorGray1">#333333</color>
+    <color name="colorGray2">#4F4F4F</color>
+    <color name="colorGray3">#828282</color>
+    <color name="colorGray4">#BDBDBD</color>
+    <color name="colorGray5">#F2F2F2</color>
+    <color name="colorGray6">#E5E5E5</color>
+    <color name="colorGray7">#808080</color>
+    <color name="colorPrimaryText">#000000</color>
+    <color name="colorButtonPrimary">#CC8650</color>
+</resources>

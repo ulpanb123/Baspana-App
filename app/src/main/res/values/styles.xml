@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Body1TextStyle">
+        <item name="fontFamily">@font/inter</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="Body2TextStyle">
+        <item name="fontFamily">@font/inter</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="SoftInputAdjustResizeStyle" parent="Theme.Baspana1">
+        <item name="android:windowSoftInputMode">stateVisible|adjustResize</item>
+    </style>
+
+    <style name="SoftInputAdjustPanStyle" parent="Theme.Baspana1">
+        <item name="android:windowSoftInputMode">adjustPan</item>
+    </style>
+    <style name="Button1TextStyle">
+        <item name="fontFamily">@font/inter</item>
+        <item name="android:textSize">14sp</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="Heading2TextStyle">
+        <item name="android:fontFamily">@font/inter_semi_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">23sp</item>
+    </style>
+
+    <style name="Header4">
+        <item name="fontFamily">@font/inter</item>
+        <item name="android:textSize">16dp</item>
+        <item name="titleCentered">true</item>
+        <item name="color">#000000</item>
+    </style>
+
+    <style name="circledShapeableImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Baspana1</string>
+    <string name="phoneNum">Номер телефона</string>
+    <string name="sms_alarm">На этот номер придет СМС с кодом</string>
+    <string name="SMSdisclaimer">На этот номер придет СМС с кодом</string>
+    <string name="sign_in">Войти</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enterSms">Введите код</string>
+    <string name="smsSent">На номер телефона было отправлено СМС с кодом.</string>
+    <string name="sendAgain">Можно отправить повторно через %s секунд</string>
+    <string name="sendAgainRequest">Отправить повторно</string>
+    <string name="loadImage">Загрузите фото</string>
+    <string name="anotherPhoto">Другое фото</string>
+    <string name="nameHint">Имя</string>
+    <string name="surnameInput">Фамилия</string>
+    <string name="emailInput">Почта</string>
+    <string name="userPerms">Регистрируясь вы соглашаетесь пользовательским соглашением</string>
+    <string name="continueButton">Продолжить</string>
+</resources>

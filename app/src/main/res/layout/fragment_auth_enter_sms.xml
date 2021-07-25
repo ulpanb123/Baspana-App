@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBarView"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginBottom="28dp"
+        android:background="@color/white"
+        android:elevation="4dp"
+        app:title="Регистрация"
+        app:titleTextColor="@color/colorPrimaryText"
+        app:titleMarginStart="80dp"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        android:clickable="true"
+        android:focusable="true" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolBarView"
+        android:paddingHorizontal="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Heading2TextStyle"
+            android:textColor="@color/black"
+            android:layout_marginBottom="12dp"
+            android:text="@string/enterSms"/>
+
+        <TextView
+            style="@style/Body2TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@string/smsSent"
+            android:textColor="@color/colorGray2"
+            android:layout_marginBottom="24dp"/>
+
+        <com.chaos.view.PinView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:id="@+id/sms_verif_view"
+            android:inputType="numberDecimal"
+            android:padding="4dp"
+            android:textColor="@color/colorPrimaryText"
+            app:lineColor="@drawable/bg_sms_code"
+            android:textSize="23sp"
+            app:itemCount="4"
+            app:itemSpacing="16dp"
+            app:itemHeight="70dp"
+            app:itemWidth="70dp"
+            app:itemRadius="7dp"
+            app:viewType="rectangle"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"/>
+
+        <TextView
+            android:id="@+id/timerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Body2TextStyle"
+            android:text="@string/sendAgain"
+            android:textColor="@color/colorGray3"
+            android:visibility="visible"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="44dp"/>
+
+        <TextView
+            android:id="@+id/sendBackTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Body2TextStyle"
+            android:text="@string/sendAgainRequest"
+            android:textColor="@color/colorPrimaryText"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:drawablePadding="4dp"
+            android:visibility="gone"
+            app:drawableEndCompat="@drawable/ic_refresh_dp20"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
+</layout>

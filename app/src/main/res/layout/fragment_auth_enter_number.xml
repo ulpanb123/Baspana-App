@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/progressBarLayout"
+    style="@style/SoftInputAdjustResizeStyle"
+    android:clickable="true"
+    android:fitsSystemWindows="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="16dp"
+        android:isScrollContainer="true"
+        android:id="@+id/appLogoView"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/logoLinearLayout"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="156dp"
+                android:layout_height="148dp"
+                android:src="@drawable/logo"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="110dp"
+                android:layout_centerInParent="true"/>
+            
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:id="@+id/layoutPhoneNumber"
+                android:layout_marginBottom="12dp"
+                android:gravity="center"
+                android:background="@drawable/bg_edit_text"
+                android:hint="@string/phoneNum"
+                android:textColorHint="@color/colorGray3"
+                app:boxCollapsedPaddingTop="6dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:hintEnabled="true"
+                app:hintTextColor="@color/colorGray3" >
+                
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/editTextPhoneNumber"
+                    android:layout_marginTop="-2dp"
+                    android:background="@android:color/transparent"
+                    android:imeOptions="actionDone"
+                    android:inputType="phone"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textColorHighlight="@color/colorGray3"
+                    android:textCursorDrawable="@null" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/phoneNumberMessage"
+                android:text="@string/SMSdisclaimer"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorGray3"
+                style="@style/Body2TextStyle"/>
+
+        </LinearLayout>
+</RelativeLayout>
+
+    <com.kusu.loadingbutton.LoadingButton
+        android:id="@+id/signInButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="16dp"
+        android:textColor="@color/colorGray7"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="@string/sign_in"
+        android:enabled="false"
+        style="@style/Button1TextStyle"
+        app:lb_buttonColor="@drawable/bg_signin_button"
+        app:lb_isShadowEnable="false"
+        app:lb_loaderColor="@color/black"
+        app:lb_cornerRadius="8dp"/>
+</RelativeLayout>
+</layout>

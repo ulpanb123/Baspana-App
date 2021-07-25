@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Use for the item to be input, set the value as the default to disable it -->
+    <item android:color="@color/colorGray6" />
+</selector>
+

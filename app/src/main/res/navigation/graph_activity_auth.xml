@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph_activity_auth"
+    app:startDestination="@id/enterNumberFragment">
+    <fragment
+        android:id="@+id/enterNumberFragment"
+        android:name="com.example.baspana1.authorization.enterNumber.EnterNumberFragment"
+        android:label="EnterNumberFragment"
+        tools:layout="@layout/fragment_auth_enter_number">
+        <action
+            android:id="@+id/action_enterNumberFragment_to_enterSmsFragment"
+            app:destination="@id/enterSmsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/enterSmsFragment"
+        android:name="com.example.baspana1.authorization.smsCode.EnterSmsFragment"
+        android:label="EnterSmsFragment"
+        tools:layout="@layout/fragment_auth_enter_sms">
+        <action
+            android:id="@+id/action_enterSmsFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_enterSmsFragment_to_enterNumberFragment"
+            app:destination="@id/enterNumberFragment"
+            app:popUpTo="@id/enterNumberFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.baspana1.authorization.registration.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_auth_registration" >
+        <action
+            android:id="@+id/action_registrationFragment_to_enterSmsFragment"
+            app:destination="@id/enterSmsFragment"
+            app:popUpTo="@id/enterSmsFragment" />
+    </fragment>
+</navigation>

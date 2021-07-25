@@ -1,0 +1,38 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Baspana1" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="splashScreenTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:windowBackground">
+            @drawable/splash_image
+        </item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">#E5E5E5</item>
+    </style>
+
+    <style name="enterSmsCodeScreen" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="backgroundColor">@color/white</item>
+        <item name="android:title">"Вход"</item>
+        <item name="titleCentered">true</item>
+        <item name="titleTextStyle">@style/Header4</item>
+        <item name="titleTextColor">@color/colorPrimaryText</item>
+        <item name="actionBarSize">56dp</item>
+        <item name="icon">@drawable/ic_arrow_back</item>
+        <item name="iconGravity">start</item>
+    </style>
+
+    <style name="registrationScreen" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="backgroundColor">@color/white</item>
+        <item name="android:title">"Заполнение данных"</item>
+        <item name="titleCentered">true</item>
+        <item name="titleTextStyle">@style/Header4</item>
+        <item name="titleTextColor">@color/colorPrimaryText</item>
+        <item name="actionBarSize">56dp</item>
+        <item name="icon">@drawable/ic_arrow_back</item>
+        <item name="iconGravity">start</item>
+    </style>
+
+
+</resources>

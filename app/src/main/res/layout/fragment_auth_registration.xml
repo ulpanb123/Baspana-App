@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/SoftInputAdjustPanStyle"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".authorization.registration.RegistrationFragment"
+    android:fitsSystemWindows="true">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBarView"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginBottom="28dp"
+        android:background="@color/white"
+        android:elevation="4dp"
+        app:title="Заполнение данных"
+        app:titleTextColor="@color/colorPrimaryText"
+        app:titleMarginStart="40dp"
+        app:navigationIcon="@drawable/ic_arrow_back" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolBarView"
+        android:layout_marginHorizontal="16dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:id="@+id/avatarImageView"
+                android:layout_centerInParent="true"
+                android:background="@color/colorGray5"
+                android:scaleType="center"
+                app:shapeAppearanceOverlay="@style/circledShapeableImageView"
+                app:srcCompat="@drawable/ic_camera" />
+
+            <RelativeLayout
+                android:id="@+id/clearImageView"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="-22dp"
+                android:layout_marginTop="4dp"
+                android:layout_toEndOf="@id/avatarImageView"
+                android:background="@drawable/bg_circle_red_with_white_stroke"
+                android:padding="4dp"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    app:srcCompat="@drawable/ic_round_clear"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/loadImageView"
+                style="@style/Body2TextStyle"
+                android:gravity="center_horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
+                android:text="@string/loadImage"
+                android:textColor="@color/colorPrimaryText"
+                android:background="@drawable/bg_rounded_clickable_radius_52dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/chooseAnotherPhotoImageView"
+                style="@style/Body2TextStyle"
+                android:gravity="center_horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
+                android:text="@string/anotherPhoto"
+                android:textColor="@color/colorPrimaryText"
+                android:background="@drawable/bg_rounded_clickable_radius_52dp"
+                android:visibility="gone"/>
+            
+        </RelativeLayout>
+        
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/bg_selector_edit_text"
+            android:gravity="center"
+            android:hint="@string/nameHint"
+            android:textColorHint="@color/colorGray3"
+            app:boxCollapsedPaddingTop="6dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintEnabled="true"
+            app:hintTextColor="@color/colorGray3">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="-2dp"
+                android:id="@+id/nameInputEditText"
+                style="@style/Body1TextStyle"
+                android:background="@android:color/transparent"
+                android:imeOptions="actionNext"
+                android:inputType="textCapSentences"
+                android:textColor="@color/colorPrimaryText"
+                android:textColorHighlight="@color/colorGray3"
+                android:textCursorDrawable="@null"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/surnameInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/bg_selector_edit_text"
+            android:gravity="center"
+            android:hint="@string/surnameInput"
+            android:textColorHint="@color/colorGray3"
+            app:boxCollapsedPaddingTop="6dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintEnabled="true"
+            app:hintTextColor="@color/colorGray3">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/surnameEditTextView"
+                style="@style/Body1TextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="-2dp"
+                android:background="@android:color/transparent"
+                android:imeOptions="actionNext"
+                android:inputType="textCapSentences"
+                android:textColor="@color/colorPrimaryText"
+                android:textColorHighlight="@color/colorGray3"
+                android:textCursorDrawable="@null" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/EmailInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/bg_selector_edit_text"
+            android:gravity="center"
+            android:hint="@string/emailInput"
+            android:textColorHint="@color/colorGray3"
+            app:boxCollapsedPaddingTop="6dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintEnabled="true"
+            app:hintTextColor="@color/colorGray3">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EmailEditTextView"
+                style="@style/Body1TextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="-2dp"
+                android:background="@android:color/transparent"
+                android:imeOptions="actionNext"
+                android:inputType="textCapSentences"
+                android:textColor="@color/colorPrimaryText"
+                android:textColorHighlight="@color/colorGray3"
+                android:textCursorDrawable="@null" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/userPermsTextView"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginBottom="44dp"
+            android:gravity="center"
+            android:text="@string/userPerms"
+            android:textColor="@color/colorGray3"/>
+    </LinearLayout>
+
+    <com.kusu.loadingbutton.LoadingButton
+        android:id="@+id/ContinueButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="16dp"
+        android:textColor="@color/colorGray7"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="@string/continueButton"
+        android:enabled="false"
+        style="@style/Button1TextStyle"
+        app:lb_buttonColor="@drawable/bg_signin_button"
+        app:lb_isShadowEnable="false"
+        app:lb_loaderColor="@color/black"
+        app:lb_cornerRadius="8dp"/>
+
+
+</RelativeLayout>
+</layout>
