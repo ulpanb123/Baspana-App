@@ -3,6 +3,6 @@
 
     <item android:drawable="@color/splash_background"/>
 
-    <item android:drawable="@drawable/logo"
+    <item android:drawable="@drawable/ic_size_logo_only"
         android:gravity="center"/>
 </layer-list>

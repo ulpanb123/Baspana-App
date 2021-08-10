@@ -69,4 +69,8 @@ dependencies {
     implementation 'com.chaos.view:pinview:1.4.4'
     
     kapt "com.android.databinding:compiler:3.4.0"
+
+    //masked edit text
+    implementation 'ru.egslava:MaskedEditText:1.0.5'
+
 }

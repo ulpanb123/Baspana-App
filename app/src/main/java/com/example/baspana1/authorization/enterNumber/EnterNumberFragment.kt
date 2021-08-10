@@ -1,8 +1,10 @@
 package com.example.baspana1.authorization.enterNumber
 
+import android.content.res.ColorStateList
 import android.graphics.Color
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.telephony.PhoneNumberFormattingTextWatcher
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
@@ -17,6 +19,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import br.com.sapereaude.maskedEditText.MaskedEditText
 import com.example.baspana1.R
 import com.example.baspana1.databinding.FragmentAuthEnterNumberBinding
 import com.google.android.material.textfield.TextInputEditText
@@ -24,7 +27,7 @@ import com.kusu.loadingbutton.LoadingButton
 
 class EnterNumberFragment : Fragment() {
     private lateinit var sigInButton : LoadingButton
-    private lateinit var phoneNumberEditText : TextInputEditText
+    private lateinit var phoneNumberEditText : MaskedEditText
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,7 +48,7 @@ class EnterNumberFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         phoneNumberEditText.doOnTextChanged { text, start, before, count ->
-            sigInButton.buttonColor = R.color.colorButtonPrimary
+            sigInButton.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.colorButtonPrimary))
             sigInButton.setTextColor(Color.WHITE)
             sigInButton.isEnabled = true
         }

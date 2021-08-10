@@ -209,12 +209,12 @@
         android:layout_marginHorizontal="16dp"
         android:textColor="@color/colorGray7"
         android:layout_marginBottom="16dp"
-        android:gravity="center"
+        android:gravity="center_vertical|center_horizontal"
         android:text="@string/continueButton"
+        android:includeFontPadding="false"
         android:enabled="false"
         style="@style/Button1TextStyle"
-        app:lb_buttonColor="@drawable/bg_signin_button"
-        app:lb_isShadowEnable="false"
+        app:lb_buttonColor="@color/colorGray6"
         app:lb_loaderColor="@color/black"
         app:lb_cornerRadius="8dp"/>
 

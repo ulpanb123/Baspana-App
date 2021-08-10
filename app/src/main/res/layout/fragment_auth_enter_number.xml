@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:mask="http://schemas.android.com/apk/res-auto" >
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -30,7 +30,7 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="156dp"
                 android:layout_height="148dp"
-                android:src="@drawable/logo"
+                android:src="@drawable/ic_size_logo_only"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="110dp"
                 android:layout_centerInParent="true"/>
@@ -50,7 +50,7 @@
                 app:hintEnabled="true"
                 app:hintTextColor="@color/colorGray3" >
                 
-                <com.google.android.material.textfield.TextInputEditText
+                <br.com.sapereaude.maskedEditText.MaskedEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/editTextPhoneNumber"
@@ -58,6 +58,9 @@
                     android:background="@android:color/transparent"
                     android:imeOptions="actionDone"
                     android:inputType="phone"
+                    mask:allowed_chars="1234567890"
+                    mask:mask="+7(###)###-##-##"
+                    android:letterSpacing="0.05"
                     android:textColor="@color/colorPrimaryText"
                     android:textColorHighlight="@color/colorGray3"
                     android:textCursorDrawable="@null" />
@@ -86,11 +89,12 @@
         android:layout_marginBottom="16dp"
         android:gravity="center"
         android:text="@string/sign_in"
+        android:includeFontPadding="false"
         android:enabled="false"
         style="@style/Button1TextStyle"
-        app:lb_buttonColor="@drawable/bg_signin_button"
-        app:lb_isShadowEnable="false"
+        android:backgroundTint="@color/colorGray6"
         app:lb_loaderColor="@color/black"
+        app:lb_isShadowEnable="false"
         app:lb_cornerRadius="8dp"/>
 </RelativeLayout>
 </layout>

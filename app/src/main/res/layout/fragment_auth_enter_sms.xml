@@ -56,7 +56,7 @@
             app:lineColor="@drawable/bg_sms_code"
             android:textSize="23sp"
             app:itemCount="4"
-            app:itemSpacing="16dp"
+            app:itemSpacing="15dp"
             app:itemHeight="70dp"
             app:itemWidth="70dp"
             app:itemRadius="7dp"

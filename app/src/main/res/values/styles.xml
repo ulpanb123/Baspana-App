@@ -19,6 +19,9 @@
         <item name="fontFamily">@font/inter</item>
         <item name="android:textSize">14sp</item>
         <item name="textAllCaps">false</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_centerInParent">true</item>
     </style>
 
     <style name="Heading2TextStyle">
