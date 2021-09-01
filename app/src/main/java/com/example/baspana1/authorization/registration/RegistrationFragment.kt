@@ -18,11 +18,16 @@ class RegistrationFragment : Fragment() {
         fun newInstance() = RegistrationFragment()
     }
 
-    private lateinit var viewModel: RegistrationViewModel
+    private val viewModel : RegistrationViewModel by lazy {
+        ViewModelProvider(this).get(RegistrationViewModel::class.java)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<FragmentAuthRegistrationBinding>(inflater, R.layout.fragment_auth_registration, container, false)
+
+        binding.lifecycleOwner = this
+        binding.registrationViewmodel = viewModel
 
         binding.toolBarView.setNavigationOnClickListener {
             this.findNavController().navigate(R.id.action_registrationFragment_to_enterSmsFragment)

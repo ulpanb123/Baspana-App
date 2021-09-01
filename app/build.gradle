@@ -2,7 +2,11 @@ apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
 
+apply plugin: "kotlin-android-extensions"
+
 apply plugin: 'kotlin-kapt'
+
+apply plugin: 'androidx.navigation.safeargs'
 
 
 
@@ -37,20 +41,27 @@ android {
         jvmTarget = '1.8'
     }
 
+    sourceSets {
+        main {
+            java {
+                srcDirs += 'build/generated/source/navigation-args'
+            }
+        }
+    }
+
 }
 
 dependencies {
     //Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$version_kotlin"
 
     implementation 'androidx.core:core-ktx:1.6.0'
     //material design
     implementation 'com.google.android.material:material:1.4.0'
 
-    //navigation
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    // Navigation
+    implementation "android.arch.navigation:navigation-fragment-ktx:$version_navigation"
+    implementation "android.arch.navigation:navigation-ui-ktx:$version_navigation"
 
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
@@ -72,5 +83,17 @@ dependencies {
 
     //masked edit text
     implementation 'ru.egslava:MaskedEditText:1.0.5'
+
+    //network dependencies
+    implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$version_retrofit"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$coroutineAdapter"
+
+    // Moshi
+    implementation "com.squareup.moshi:moshi:$version_moshi"
+    implementation "com.squareup.moshi:moshi-kotlin:$version_moshi"
+
+    // Retrofit with Moshi Converter
+    implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
 
 }

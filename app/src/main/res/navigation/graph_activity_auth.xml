@@ -19,6 +19,9 @@
         android:name="com.example.baspana1.authorization.smsCode.EnterSmsFragment"
         android:label="EnterSmsFragment"
         tools:layout="@layout/fragment_auth_enter_sms">
+        <argument
+            android:name="phoneNumber"
+            app:argType="string" />
         <action
             android:id="@+id/action_enterSmsFragment_to_registrationFragment"
             app:destination="@id/registrationFragment" />
@@ -32,6 +35,12 @@
         android:name="com.example.baspana1.authorization.registration.RegistrationFragment"
         android:label="fragment_registration"
         tools:layout="@layout/fragment_auth_registration" >
+        <argument
+            android:name="phoneNumber"
+            app:argType="string" />
+        <argument
+            android:name="otp"
+            app:argType="string"/>
         <action
             android:id="@+id/action_registrationFragment_to_enterSmsFragment"
             app:destination="@id/enterSmsFragment"

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:mask="http://schemas.android.com/apk/res-auto" >
+    <data>
+        <variable
+            name="EnterNumberViewModel"
+            type="com.example.baspana1.authorization.enterNumber.EnterNumberViewModel" />
+    </data>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -48,7 +53,7 @@
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
                 app:hintEnabled="true"
-                app:hintTextColor="@color/colorGray3" >
+                app:hintTextColor="@color/colorGray3">
                 
                 <br.com.sapereaude.maskedEditText.MaskedEditText
                     android:layout_width="match_parent"
@@ -95,6 +100,7 @@
         android:backgroundTint="@color/colorGray6"
         app:lb_loaderColor="@color/black"
         app:lb_isShadowEnable="false"
-        app:lb_cornerRadius="8dp"/>
+        app:lb_cornerRadius="8dp"
+        android:onClick="@{() -> EnterNumberViewModel.onSignIn()}"/>
 </RelativeLayout>
 </layout>

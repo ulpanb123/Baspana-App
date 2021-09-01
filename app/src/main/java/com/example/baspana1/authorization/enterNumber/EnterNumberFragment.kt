@@ -16,6 +16,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -26,6 +27,11 @@ import com.google.android.material.textfield.TextInputEditText
 import com.kusu.loadingbutton.LoadingButton
 
 class EnterNumberFragment : Fragment() {
+
+    private val viewmodel : EnterNumberViewModel by lazy {
+        ViewModelProvider(this).get(EnterNumberViewModel::class.java)
+    }
+
     private lateinit var sigInButton : LoadingButton
     private lateinit var phoneNumberEditText : MaskedEditText
 
@@ -39,21 +45,28 @@ class EnterNumberFragment : Fragment() {
         sigInButton = binding.signInButton
         phoneNumberEditText = binding.editTextPhoneNumber
 
-        binding.signInButton.setOnClickListener {
-            sigInButton.showLoading()
-            it.findNavController().navigate(R.id.action_enterNumberFragment_to_enterSmsFragment)
-        }
-        return binding.root
-    }
+        binding.lifecycleOwner = this
+        binding.enterNumberViewModel = viewmodel
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        viewmodel.phoneNumber = phoneNumberEditText.text.toString()
+
+        viewmodel.navigateToSmsCode.observe(this.viewLifecycleOwner, Observer { phoneNumber ->
+            binding.signInButton.showLoading()
+            phoneNumber?.let {
+                if(this.findNavController().currentDestination?.id == R.id.enterNumberFragment) {
+                    this.findNavController().navigate(EnterNumberFragmentDirections.actionEnterNumberFragmentToEnterSmsFragment(phoneNumber))
+                    viewmodel.doneNavigating()
+                }
+            }
+        })
+
         phoneNumberEditText.doOnTextChanged { text, start, before, count ->
             sigInButton.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.colorButtonPrimary))
             sigInButton.setTextColor(Color.WHITE)
             sigInButton.isEnabled = true
         }
 
-
-        super.onViewCreated(view, savedInstanceState)
+        return binding.root
     }
+    
 }
