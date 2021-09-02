@@ -42,9 +42,13 @@ class EnterSmsViewModel : ViewModel() {
             val verifyRequest  = VerifyUserRequest(phoneNumber, otp)
             try {
                 val verifiedUser : VerifiedUser = BaspanaApi.retrofitService.makeVerifyUser(verifyRequest)
-                if(verifiedUser.completed) {
-                    val refreshToken : RefreshToken = BaspanaApi.retrofitService.makeRefreshToken(RefreshTokenRequest(verifiedUser.refresh))
-                }
+
+                /*
+                 * for later implementation:
+                 * (if verifiedUser.completed) -> navigate to main menu
+                 * else -> navigate to registration page
+                 */
+
                 Log.d("EnterSmsViewModel", "Success")
             } catch (t : Throwable) {
                 Log.d("EnterSmsViewModel", t.message.toString())

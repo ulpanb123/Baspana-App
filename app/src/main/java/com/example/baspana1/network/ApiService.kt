@@ -11,6 +11,10 @@ import retrofit2.http.POST
 
 private const val BASE_URL = "https://api.oz-uyim.kz/api/"
 
+private val okHttpClient = okhttp3.OkHttpClient()
+
+private val tokenAuthenticator = TokenAuthenticator()
+
 private val moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
         .build()
@@ -20,6 +24,7 @@ private val retrofit = Retrofit.Builder()
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .baseUrl(BASE_URL)
         .build()
+
 
 interface ApiService {
 
