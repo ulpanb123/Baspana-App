@@ -1,4 +1,4 @@
-package com.example.baspana1.network.properties.auth
+package com.example.baspana1.model.auth
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

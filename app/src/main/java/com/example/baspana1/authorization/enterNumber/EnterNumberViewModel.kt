@@ -1,17 +1,11 @@
 package com.example.baspana1.authorization.enterNumber
 
-import android.os.Parcelable
 import android.util.Log
-import android.view.View
-import androidx.core.os.bundleOf
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.versionedparcelable.ParcelField
 import com.example.baspana1.network.BaspanaApi
-import com.example.baspana1.network.properties.auth.LoginWithPhoneRequest
-import com.kusu.loadingbutton.LoadingButton
-import kotlinx.android.parcel.Parcelize
+import com.example.baspana1.model.auth.LoginWithPhoneRequest
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

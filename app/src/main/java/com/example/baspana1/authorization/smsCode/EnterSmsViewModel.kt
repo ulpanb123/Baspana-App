@@ -5,10 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.baspana1.network.BaspanaApi
-import com.example.baspana1.network.properties.auth.RefreshToken
-import com.example.baspana1.network.properties.auth.RefreshTokenRequest
-import com.example.baspana1.network.properties.auth.VerifiedUser
-import com.example.baspana1.network.properties.auth.VerifyUserRequest
+import com.example.baspana1.model.auth.VerifiedUser
+import com.example.baspana1.model.auth.VerifyUserRequest
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

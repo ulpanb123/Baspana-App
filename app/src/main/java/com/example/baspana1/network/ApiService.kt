@@ -1,19 +1,30 @@
 package com.example.baspana1.network
 
-import com.example.baspana1.network.properties.auth.*
+import com.example.baspana1.model.auth.*
+import com.example.baspana1.model.profile.Avatar
+import com.example.baspana1.model.profile.Profile
+import com.example.baspana1.model.profile.UpdateProfileRequest
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import kotlinx.coroutines.Deferred
+import okhttp3.Interceptor
+import okhttp3.Request
+import okhttp3.Response
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.http.Body
-import retrofit2.http.POST
+import retrofit2.http.*
 
 private const val BASE_URL = "https://api.oz-uyim.kz/api/"
 
-private val okHttpClient = okhttp3.OkHttpClient()
+private val logging = HttpLoggingInterceptor()
+        .setLevel(HttpLoggingInterceptor.Level.BASIC)
 
-private val tokenAuthenticator = TokenAuthenticator()
+
+private val okHttpBuilder = okhttp3.OkHttpClient.Builder()
+        .authenticator(TokenAuthenticator())
+        .addInterceptor(logging)
 
 private val moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
@@ -23,15 +34,19 @@ private val retrofit = Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .baseUrl(BASE_URL)
+        .client(okHttpBuilder.build())
         .build()
 
 
 interface ApiService {
 
+    // Auth
+
     @POST("v1/account/login/")
     suspend fun makeLogInWithPhone(
-            @Body param : LoginWithPhoneRequest
+            @Body param:  LoginWithPhoneRequest
     )
+
 
     @POST("token/refresh/")
     suspend fun makeRefreshToken(
@@ -43,6 +58,19 @@ interface ApiService {
             @Body param : VerifyUserRequest
     ) : VerifiedUser
 
+    //Profile
+    @PATCH("v1/account/profile/")
+    suspend fun updateProfile(
+            @Body param: UpdateProfileRequest
+    )
+
+    @GET("v1/account/profile/")
+    suspend fun getUserProfile() : Profile
+
+    @POST("v1/account/avatar/")
+    suspend fun setUserAvatar(
+        @Body param: Avatar
+    ) : Avatar
 }
 
 object BaspanaApi {
