@@ -1,6 +1,7 @@
 package com.example.baspana1.authorization.smsCode
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,10 +44,10 @@ class EnterSmsFragment : Fragment() {
         val smsCodeView = binding.smsVerifView
 
 
-
         smsCodeView.doAfterTextChanged {
             if(it?.length == 4) {
                 viewModel.otp = it.toString()
+                Log.d("debug", viewModel.phoneNumber + "\n"+ viewModel.otp)
                 viewModel.onOtpEntered()
             }
         }

@@ -14,6 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.core.widget.doAfterTextChanged
 import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -48,7 +49,6 @@ class EnterNumberFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.enterNumberViewModel = viewmodel
 
-        viewmodel.phoneNumber = phoneNumberEditText.text.toString()
 
         viewmodel.navigateToSmsCode.observe(this.viewLifecycleOwner, Observer { phoneNumber ->
             binding.signInButton.showLoading()
@@ -64,6 +64,14 @@ class EnterNumberFragment : Fragment() {
             sigInButton.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.colorButtonPrimary))
             sigInButton.setTextColor(Color.WHITE)
             sigInButton.isEnabled = true
+        }
+
+        phoneNumberEditText.doAfterTextChanged {
+            if(it?.length!! == 16) {
+                viewmodel.phoneNumber = it.toString()
+            }
+
+
         }
 
         return binding.root

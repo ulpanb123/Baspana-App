@@ -9,6 +9,7 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
+import okhttp3.MultipartBody
 import okhttp3.Request
 import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
@@ -62,15 +63,14 @@ interface ApiService {
     @PATCH("v1/account/profile/")
     suspend fun updateProfile(
             @Body param: UpdateProfileRequest
-    )
+    ) : Profile
 
     @GET("v1/account/profile/")
     suspend fun getUserProfile() : Profile
 
+    @Multipart
     @POST("v1/account/avatar/")
-    suspend fun setUserAvatar(
-        @Body param: Avatar
-    ) : Avatar
+    suspend fun makeUpdateUserAvatar(@Part file: MultipartBody.Part?)
 }
 
 object BaspanaApi {

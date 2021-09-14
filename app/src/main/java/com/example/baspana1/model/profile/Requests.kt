@@ -11,3 +11,4 @@ data class UpdateProfileRequest(
     @SerializedName("email") val email: String? = null
 ): Parcelable
 
+
