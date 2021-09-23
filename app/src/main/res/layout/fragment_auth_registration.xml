@@ -182,7 +182,7 @@
             app:hintTextColor="@color/colorGray3">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/EmailEditTextView"
+                android:id="@+id/emailEditTextView"
                 style="@style/Body1TextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

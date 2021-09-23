@@ -1,5 +1,7 @@
 package com.example.baspana1.authorization.smsCode
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,12 +16,19 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.baspana1.R
 import com.example.baspana1.databinding.FragmentAuthEnterSmsBinding
+import com.example.baspana1.model.auth.VerifiedUser
 
 class EnterSmsFragment : Fragment() {
 
     private val viewModel : EnterSmsViewModel by lazy {
         ViewModelProvider(this).get(EnterSmsViewModel::class.java)
     }
+    private val sharedPrefKey = "UserInfo";
+    private val authenticatedKey = "IsAuthenticated";
+    private val completedKey = "IsCompleted";
+    private val accessKey = "AccessKey";
+    private val refreshKey = "RefreshKey"
+    val myPrefs : SharedPreferences? = activity?.getPreferences(Context.MODE_PRIVATE)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -66,7 +75,11 @@ class EnterSmsFragment : Fragment() {
         binding.toolBarView.setNavigationOnClickListener {
             it.findNavController().navigate(R.id.action_enterSmsFragment_to_enterNumberFragment)
         }
+
+
         return binding.root
     }
+
+
 
 }

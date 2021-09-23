@@ -16,15 +16,19 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.*
+import java.util.concurrent.TimeUnit
 
 private const val BASE_URL = "https://api.oz-uyim.kz/api/"
 
 private val logging = HttpLoggingInterceptor()
         .setLevel(HttpLoggingInterceptor.Level.BASIC)
 
+private val authInterceptor = TokenInterceptor()
 
 private val okHttpBuilder = okhttp3.OkHttpClient.Builder()
-        .authenticator(TokenAuthenticator())
+        .addInterceptor(authInterceptor)
+        .connectTimeout(30, TimeUnit.SECONDS)
+        .readTimeout(30, TimeUnit.SECONDS)
         .addInterceptor(logging)
 
 private val moshi = Moshi.Builder()
@@ -42,12 +46,10 @@ private val retrofit = Retrofit.Builder()
 interface ApiService {
 
     // Auth
-
     @POST("v1/account/login/")
     suspend fun makeLogInWithPhone(
             @Body param:  LoginWithPhoneRequest
     )
-
 
     @POST("token/refresh/")
     suspend fun makeRefreshToken(

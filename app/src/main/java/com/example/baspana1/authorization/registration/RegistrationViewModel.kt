@@ -2,6 +2,7 @@ package com.example.baspana1.authorization.registration
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import com.example.baspana1.model.profile.UpdateProfileRequest
 import com.example.baspana1.network.BaspanaApi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -16,9 +17,9 @@ import java.net.URI.create
 
 
 class RegistrationViewModel : ViewModel() {
-    var email : String = ""
-    var firstName : String = ""
-    var lastName : String = ""
+    lateinit var email : String
+    lateinit var firstName : String
+    lateinit var lastName : String
 
 
     private val viewmodelJob = Job()
@@ -38,7 +39,18 @@ class RegistrationViewModel : ViewModel() {
             try {
                 BaspanaApi.retrofitService.makeUpdateUserAvatar(filePart)
             } catch (t: Throwable) {
-                Log.d("EnterNumberViewModel", t.message.toString())
+                Log.d("Registration.ViewModel", t.message.toString())
+            }
+        }
+    }
+
+    private fun updateProfile(email : String, firstName : String, lastName : String) {
+        val updateProfileRequest = UpdateProfileRequest(firstName, lastName, email)
+        uiScope.launch {
+            try {
+                BaspanaApi.retrofitService.updateProfile(updateProfileRequest)
+            } catch (t: Throwable) {
+                Log.d("Registration.ViewModel", t.message.toString())
             }
         }
     }

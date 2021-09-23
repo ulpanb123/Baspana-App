@@ -1,9 +1,11 @@
 package com.example.baspana1.authorization.smsCode
 
+import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.baspana1.AppPreferences
 import com.example.baspana1.network.BaspanaApi
 import com.example.baspana1.model.auth.VerifiedUser
 import com.example.baspana1.model.auth.VerifyUserRequest
@@ -13,7 +15,6 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class EnterSmsViewModel : ViewModel() {
-
     var otp : String = ""
     var phoneNumber : String = ""
 
@@ -39,7 +40,9 @@ class EnterSmsViewModel : ViewModel() {
         uiScope.launch {
             val verifyRequest  = VerifyUserRequest(phoneNumber, otp)
             try {
-                val verifiedUser : VerifiedUser = BaspanaApi.retrofitService.makeVerifyUser(verifyRequest)
+                val verifiedUser  = BaspanaApi.retrofitService.makeVerifyUser(verifyRequest)
+                AppPreferences.accessToken = verifiedUser.access
+                AppPreferences.refreshToken = verifiedUser.refresh
 
                 /*
                  * for later implementation:
@@ -53,6 +56,10 @@ class EnterSmsViewModel : ViewModel() {
 
             }
 
+        }
+
+        fun passPreferences(userInfo : VerifiedUser) : VerifiedUser{
+            return userInfo;
         }
 
     }
