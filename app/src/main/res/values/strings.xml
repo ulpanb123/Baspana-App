@@ -17,4 +17,9 @@
     <string name="emailInput">Почта</string>
     <string name="userPerms">Регистрируясь вы соглашаетесь пользовательским соглашением</string>
     <string name="continueButton">Продолжить</string>
+    <string name="navigation_home">Главная</string>
+    <string name="navigation_overview">Обзор</string>
+    <string name="navigation_chats">Чаты</string>
+    <string name="navigation_profile">Профиль</string>
+    <string name="home_action_search">Поиск</string>
 </resources>

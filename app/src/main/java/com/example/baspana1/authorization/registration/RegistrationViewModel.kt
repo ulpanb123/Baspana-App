@@ -1,6 +1,8 @@
 package com.example.baspana1.authorization.registration
 
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.baspana1.model.profile.UpdateProfileRequest
 import com.example.baspana1.network.BaspanaApi
@@ -21,7 +23,13 @@ class RegistrationViewModel : ViewModel() {
     lateinit var firstName : String
     lateinit var lastName : String
 
+    private var _navigateToMainActivity = MutableLiveData<Boolean>()
+    val navigateToMainActivity : LiveData<Boolean>
+        get() = _navigateToMainActivity
 
+    fun doneNavigating() {
+        _navigateToMainActivity.value = false
+    }
     private val viewmodelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewmodelJob)
 
@@ -46,6 +54,18 @@ class RegistrationViewModel : ViewModel() {
 
     private fun updateProfile(email : String, firstName : String, lastName : String) {
         val updateProfileRequest = UpdateProfileRequest(firstName, lastName, email)
+        uiScope.launch {
+            try {
+                BaspanaApi.retrofitService.updateProfile(updateProfileRequest)
+            } catch (t: Throwable) {
+                Log.d("Registration.ViewModel", t.message.toString())
+            }
+        }
+    }
+
+    fun onSubmit() {
+        val updateProfileRequest = UpdateProfileRequest(firstName, lastName, email)
+        _navigateToMainActivity.value = true
         uiScope.launch {
             try {
                 BaspanaApi.retrofitService.updateProfile(updateProfileRequest)

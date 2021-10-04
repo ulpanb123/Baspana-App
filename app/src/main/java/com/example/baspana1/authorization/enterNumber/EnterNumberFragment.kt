@@ -60,18 +60,15 @@ class EnterNumberFragment : Fragment() {
             }
         })
 
+
+
         phoneNumberEditText.doOnTextChanged { text, start, before, count ->
-            sigInButton.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.colorButtonPrimary))
-            sigInButton.setTextColor(Color.WHITE)
-            sigInButton.isEnabled = true
-        }
-
-        phoneNumberEditText.doAfterTextChanged {
-            if(it?.length!! == 16) {
-                viewmodel.phoneNumber = it.toString()
+            if(text?.length!! == 16) {
+                sigInButton.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.colorButtonPrimary))
+                sigInButton.setTextColor(Color.WHITE)
+                sigInButton.isEnabled = true
+                viewmodel.phoneNumber = text.toString()
             }
-
-
         }
 
         return binding.root

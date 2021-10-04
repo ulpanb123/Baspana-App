@@ -1,36 +1,38 @@
 package com.example.baspana1.authorization.registration
-import android.app.Activity
+import android.R.attr.name
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
-import android.graphics.drawable.Drawable
-import android.net.Uri
-import android.opengl.Visibility
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.os.Environment
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
-import androidx.fragment.app.Fragment
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.graphics.toColor
 import androidx.core.net.toFile
-import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
+import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.baspana1.R
 import com.example.baspana1.databinding.FragmentAuthRegistrationBinding
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.android.material.imageview.ShapeableImageView
+import com.google.android.material.textfield.TextInputEditText
 import com.kusu.loadingbutton.LoadingButton
 import kotlinx.android.synthetic.main.fragment_auth_registration.*
 import java.io.File
+
 
 class RegistrationFragment : Fragment() {
 
@@ -44,6 +46,9 @@ class RegistrationFragment : Fragment() {
     private lateinit var clearImageView: RelativeLayout
     private lateinit var chooseAnotherPhoto : TextView
     private lateinit var continueButton : LoadingButton
+    private lateinit var nameInputEditText: TextInputEditText
+    private lateinit var surnameInputEditText: TextInputEditText
+    private lateinit var emailInputEditText: TextInputEditText
 
     private val viewModel : RegistrationViewModel by lazy {
         ViewModelProvider(this).get(RegistrationViewModel::class.java)
@@ -62,49 +67,46 @@ class RegistrationFragment : Fragment() {
         chooseAnotherPhoto = binding.chooseAnotherPhotoImageView
         continueButton = binding.ContinueButton
 
-        var isInputValid : Boolean = true
-        var isInputNonEmpty1 : Boolean = false
-        var isInputNonEmpty2 : Boolean = false
-        var isInputNonEmpty3 : Boolean = false
 
-        binding.nameInputEditText.doAfterTextChanged {
-            isInputNonEmpty1 = true
-            if (it != null) {
-                if(it.contains(Regex("[$&+,:;=?@#|'<>.^*()%!-123456789]")) || it.isEmpty()) {
-                    isInputValid = false
-                    nameInputEditText.background = resources.getDrawable(R.drawable.bg_edit_text_invalid)
+        nameInputEditText = binding.nameInputEditText
+        surnameInputEditText = binding.surnameEditTextView
+        emailInputEditText = binding.emailEditTextView
+
+
+        nameInputEditText.doOnTextChanged { text, start, before, count ->
+            if (text != null) {
+                if(!text.contains(Regex("[$&+,:;=?@#|'<>.^*()%!-123456789]"))) {
+                    nameInputEditText.setTextColor(Color.BLACK)
                 } else {
-                    nameInputEditText.background = resources.getDrawable(R.drawable.bg_selector_edit_text)
+                    nameInputEditText.setTextColor(Color.RED)
                 }
+                checkRequiredFields()
             }
         }
 
-        binding.surnameEditTextView.doAfterTextChanged {
-            isInputNonEmpty2 = true
-            if (it != null) {
-                if(it.contains(Regex("[$&+,:;=?@#|'<>.^*()%!-123456789]")) || it.isEmpty()) {
-                    isInputValid = false
-                    surnameEditTextView.background = resources.getDrawable(R.drawable.bg_edit_text_invalid)
+        surnameInputEditText.doOnTextChanged { text, start, before, count ->
+            if (text != null) {
+                if(!text.contains(Regex("[$&+,:;=?@#|'<>.^*()%!-123456789]"))) {
+                    surnameInputEditText.setTextColor(Color.BLACK)
                 } else {
-                    surnameEditTextView.background = resources.getDrawable(R.drawable.bg_selector_edit_text)
+                    surnameInputEditText.setTextColor(Color.RED)
                 }
-            }
-
-        }
-
-        binding.emailEditTextView.doAfterTextChanged {
-            isInputNonEmpty3 = true
-            if (it != null) {
-                if(it.contains(Regex("[$&+,:;=?@#|'<>.^*()%!-123456789]")) || it.isEmpty()) {
-                    isInputValid = false
-                    emailEditTextView.background = resources.getDrawable(R.drawable.bg_edit_text_invalid)
-                } else {
-                    emailEditTextView.background = resources.getDrawable(R.drawable.bg_selector_edit_text)
-                }
+                checkRequiredFields()
             }
         }
 
-        updateButton(isInputValid, isInputNonEmpty1, isInputNonEmpty2, isInputNonEmpty3)
+        emailInputEditText.doOnTextChanged { text, start, before, count ->
+            if(text != null) {
+                if(Patterns.EMAIL_ADDRESS.matcher(text).matches()) {
+                    emailInputEditText.setTextColor(Color.BLACK)
+                } else {
+                    emailInputEditText.setTextColor(Color.RED)
+                }
+                checkRequiredFields()
+            }
+        }
+
+
 
         loadImageView.setOnClickListener {
             ImagePicker.with(this)
@@ -135,16 +137,13 @@ class RegistrationFragment : Fragment() {
                     .start()
         }
 
-
-        binding.ContinueButton.setOnClickListener {
-            if(!it.isEnabled) {
-                Toast.makeText(context, "Сначала заполните все поля", Toast.LENGTH_LONG).show()
-            } else {
-                viewModel.email = binding.emailEditTextView.text.toString()
-                viewModel.firstName = binding.nameInputEditText.text.toString()
-                viewModel.lastName = binding.surnameEditTextView.text.toString()
+       /*viewModel.navigateToMainActivity.observe(viewLifecycleOwner, Observer {
+            if(it == true) {
+                this.findNavController().navigate(RegistrationFragmentDirections.actionAuthActivityToMainActivity())
+                viewModel.doneNavigating()
             }
-        }
+        })*/
+
 
         binding.toolBarView.setNavigationOnClickListener {
             this.findNavController().navigate(R.id.action_registrationFragment_to_enterSmsFragment)
@@ -170,15 +169,27 @@ class RegistrationFragment : Fragment() {
             viewModel.postAvatar(avatarImageFile)
 
     }
-     
-    fun updateButton(isInputValid : Boolean, isInputNonEmpty1 : Boolean, isInputNonEmpty2 : Boolean, isInputNonEmpty3 : Boolean) {
-        if(isInputValid && (isInputNonEmpty1 && isInputNonEmpty2 && isInputNonEmpty3)) {
+
+    private fun checkRequiredFields() {
+        val isInputValid : Boolean = nameInputEditText.currentTextColor == Color.BLACK
+                && surnameInputEditText.currentTextColor == Color.BLACK
+                && emailInputEditText.currentTextColor == Color.BLACK
+        if(nameInputEditText.text.toString().isNotEmpty() && surnameInputEditText.text.toString().isNotEmpty()
+                && emailInputEditText.text.toString().isNotEmpty() && isInputValid) {
+                    //enable the button
+            continueButton.isEnabled = true
             continueButton.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.colorButtonPrimary))
             continueButton.setTextColor(Color.WHITE)
-            continueButton.isEnabled = true
+
+            //change values in viewmodel
+            viewModel.firstName = nameInputEditText.text.toString()
+            viewModel.lastName = surnameInputEditText.text.toString()
+            viewModel.email = emailInputEditText.text.toString()
+        } else {
+            continueButton.isEnabled = false
+            continueButton.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.colorGray6))
+            continueButton.setTextColor(resources.getColor(R.color.colorGray7))
         }
     }
-
-
 
 }

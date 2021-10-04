@@ -4,6 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/graph_activity_auth"
     app:startDestination="@id/enterNumberFragment">
+
+    <include app:graph="@navigation/graph_activity_main"/>
+
+
     <fragment
         android:id="@+id/enterNumberFragment"
         android:name="com.example.baspana1.authorization.enterNumber.EnterNumberFragment"
@@ -45,5 +49,8 @@
             android:id="@+id/action_registrationFragment_to_enterSmsFragment"
             app:destination="@id/enterSmsFragment"
             app:popUpTo="@id/enterSmsFragment" />
+        <action
+            android:id="@+id/action_authActivity_to_mainActivity"
+            app:destination="@+id/homeFragment"/>
     </fragment>
 </navigation>

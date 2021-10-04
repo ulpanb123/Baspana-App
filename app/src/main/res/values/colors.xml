@@ -16,4 +16,6 @@
     <color name="colorGray7">#808080</color>
     <color name="colorPrimaryText">#000000</color>
     <color name="colorButtonPrimary">#CC8650</color>
+    <color name="colorMainBackground">#FFFFFF</color>
+    <color name="colorSecondaryBackground">#EBEBEB</color>
 </resources>

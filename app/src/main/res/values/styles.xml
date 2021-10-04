@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Body1TextStyle">
-        <item name="fontFamily">@font/inter</item>
+        <item name="fontFamily">@font/inter_regular</item>
         <item name="android:textSize">16sp</item>
     </style>
     <style name="Body2TextStyle">
-        <item name="fontFamily">@font/inter</item>
+        <item name="fontFamily">@font/inter_regular</item>
         <item name="android:textSize">14sp</item>
     </style>
     <style name="SoftInputAdjustResizeStyle" parent="Theme.Baspana1">
@@ -16,7 +16,7 @@
         <item name="android:windowSoftInputMode">adjustPan</item>
     </style>
     <style name="Button1TextStyle">
-        <item name="fontFamily">@font/inter</item>
+        <item name="fontFamily">@font/inter_medium</item>
         <item name="android:textSize">14sp</item>
         <item name="textAllCaps">false</item>
         <item name="android:textAlignment">center</item>
@@ -31,7 +31,7 @@
     </style>
 
     <style name="Header4">
-        <item name="fontFamily">@font/inter</item>
+        <item name="fontFamily">@font/inter_semi_bold</item>
         <item name="android:textSize">16dp</item>
         <item name="titleCentered">true</item>
         <item name="color">#000000</item>
@@ -40,5 +40,33 @@
     <style name="circledShapeableImageView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="CollapsingToolbarTextAppearanceCollapsed">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/colorPrimaryText</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:fontFamily">@font/inter_semi_bold</item>
+    </style>
+
+    <style name="CollapsingToolbarTextAppearanceExpanded">
+        <item name="android:textColor">@color/colorPrimaryText</item>
+        <item name="android:textSize">33dp</item>
+        <item name="android:fontFamily">@font/inter_semi_bold</item>
+    </style>
+
+    <style name="Subtitle1TextStyle">
+        <item name="android:fontFamily">@font/inter_semi_bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Subtitle2TextStyle">
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Subtitle3TextStyle">
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:textSize">12sp</item>
     </style>
 </resources>

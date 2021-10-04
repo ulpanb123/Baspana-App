@@ -218,6 +218,7 @@
         android:text="@string/continueButton"
         android:includeFontPadding="false"
         android:enabled="false"
+        android:onClick="@{() -> RegistrationViewmodel.onSubmit()}"
         style="@style/Button1TextStyle"
         app:lb_buttonColor="@color/colorGray6"
         app:lb_loaderColor="@color/black"
