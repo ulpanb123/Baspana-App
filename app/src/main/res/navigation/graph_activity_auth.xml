@@ -51,6 +51,6 @@
             app:popUpTo="@id/enterSmsFragment" />
         <action
             android:id="@+id/action_authActivity_to_mainActivity"
-            app:destination="@+id/homeFragment"/>
+            app:destination="@+id/graph_activity_main"/>
     </fragment>
 </navigation>

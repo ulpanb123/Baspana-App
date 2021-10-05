@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/white"
+        android:elevation="2dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="156dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/buildingImageView"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="156dp"
+                app:shapeAppearanceOverlay="@style/TopRounded8dpShapeAbleImageView" />
+
+            <TextView
+                android:id="@+id/createdDateTextView"
+                style="@style/Caption1TextStyle"
+                android:layout_alignParentBottom="true"
+                android:textColor="@color/colorPrimaryText"
+                android:background="@color/colorWhiteWithSixtyPercentAlpha"
+                android:padding="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="6dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                tools:text="22 марта" />
+
+            <TextView
+                android:id="@+id/imagesCountTextView"
+                style="@style/Caption1TextStyle"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/colorPrimaryText"
+                android:background="@color/colorWhiteWithSixtyPercentAlpha"
+                android:padding="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="6dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                tools:text="1/6" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/titleTextView"
+                style="@style/Heading3TextStyle"
+                android:textColor="@color/colorPrimaryText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="45 000 000 ₸" />
+
+            <TextView
+                android:id="@+id/shortInfoTextView"
+                android:layout_below="@+id/titleTextView"
+                style="@style/Caption1TextStyle"
+                android:textColor="@color/colorDarkBlue"
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="45 000 000 ₸" />
+
+            <TextView
+                android:id="@+id/addressTextView"
+                android:layout_below="@+id/shortInfoTextView"
+                style="@style/Caption1TextStyle"
+                android:textColor="@color/colorGray3"
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="45 000 000 ₸" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

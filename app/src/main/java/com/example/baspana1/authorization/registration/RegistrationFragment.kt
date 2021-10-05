@@ -137,13 +137,12 @@ class RegistrationFragment : Fragment() {
                     .start()
         }
 
-       /*viewModel.navigateToMainActivity.observe(viewLifecycleOwner, Observer {
+       viewModel.navigateToMainActivity.observe(viewLifecycleOwner, Observer {
             if(it == true) {
                 this.findNavController().navigate(RegistrationFragmentDirections.actionAuthActivityToMainActivity())
                 viewModel.doneNavigating()
             }
-        })*/
-
+        })
 
         binding.toolBarView.setNavigationOnClickListener {
             this.findNavController().navigate(R.id.action_registrationFragment_to_enterSmsFragment)

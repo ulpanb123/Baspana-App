@@ -37,6 +37,12 @@
         <item name="color">#000000</item>
     </style>
 
+    <style name="Heading5OverlineRegularTextStyle">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">@font/inter_semi_bold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
     <style name="circledShapeableImageView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>

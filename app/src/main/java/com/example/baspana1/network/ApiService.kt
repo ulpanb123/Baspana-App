@@ -1,5 +1,7 @@
 package com.example.baspana1.network
 
+import com.example.baspana1.model.adverts.AdvertItem
+import com.example.baspana1.model.adverts.Adverts
 import com.example.baspana1.model.auth.*
 import com.example.baspana1.model.profile.Avatar
 import com.example.baspana1.model.profile.Profile
@@ -73,6 +75,15 @@ interface ApiService {
     @Multipart
     @POST("v1/account/avatar/")
     suspend fun makeUpdateUserAvatar(@Part file: MultipartBody.Part?)
+
+    @GET("v1/advert/all")
+    suspend fun getAdverts(): Adverts
+
+    @GET("v1/advert")
+    suspend fun getMyAdverts(): Adverts
+
+    @GET("v1/advert/{id}")
+    suspend fun getAdvertById(@Path(value = "id") id: Int): AdvertItem
 }
 
 object BaspanaApi {

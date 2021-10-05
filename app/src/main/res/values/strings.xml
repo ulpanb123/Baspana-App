@@ -22,4 +22,9 @@
     <string name="navigation_chats">Чаты</string>
     <string name="navigation_profile">Профиль</string>
     <string name="home_action_search">Поиск</string>
+    <string name="home_action_consult">Консультирование</string>
+    <string name="home_action_buy">Купить</string>
+    <string name="home_action_sell">Продать</string>
+    <string name="home_action_consulting">Консультация</string>
+    <string name="home_adverts">Обьявления</string>
 </resources>
