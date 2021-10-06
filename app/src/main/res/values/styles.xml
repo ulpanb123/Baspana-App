@@ -30,6 +30,11 @@
         <item name="android:textSize">23sp</item>
     </style>
 
+    <style name="Heading3TextStyle">
+        <item name="android:fontFamily">@font/inter_semi_bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
     <style name="Header4">
         <item name="fontFamily">@font/inter_semi_bold</item>
         <item name="android:textSize">16dp</item>
@@ -61,6 +66,16 @@
         <item name="android:fontFamily">@font/inter_semi_bold</item>
     </style>
 
+    <style name="Caption1TextStyle">
+        <item name="android:fontFamily">@font/inter_semi_bold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Caption2TextStyle">
+        <item name="android:fontFamily">@font/inter_semi_bold</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
     <style name="Subtitle1TextStyle">
         <item name="android:fontFamily">@font/inter_semi_bold</item>
         <item name="android:textSize">16sp</item>
@@ -75,4 +90,12 @@
         <item name="android:fontFamily">@font/inter_regular</item>
         <item name="android:textSize">12sp</item>
     </style>
+    <style name="TopRounded8dpShapeAbleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">3%</item>
+        <item name="cornerSizeTopRight">3%</item>
+        <item name="cornerSizeBottomRight">0%</item>
+        <item name="cornerSizeBottomLeft">0%</item>
+    </style>
+
 </resources>

@@ -27,4 +27,5 @@
     <string name="home_action_sell">Продать</string>
     <string name="home_action_consulting">Консультация</string>
     <string name="home_adverts">Обьявления</string>
+    <string name="searchHint">Поиск</string>
 </resources>

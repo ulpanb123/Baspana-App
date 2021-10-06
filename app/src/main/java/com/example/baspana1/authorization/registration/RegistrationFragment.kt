@@ -1,12 +1,9 @@
 package com.example.baspana1.authorization.registration
-import android.R.attr.name
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Environment
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
 import android.util.Patterns
 import android.view.LayoutInflater
@@ -14,10 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.graphics.toColor
 import androidx.core.net.toFile
-import androidx.core.widget.doAfterTextChanged
 import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -26,6 +20,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.baspana1.R
 import com.example.baspana1.databinding.FragmentAuthRegistrationBinding
+import com.example.baspana1.main.MainActivity
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.textfield.TextInputEditText
@@ -54,9 +49,16 @@ class RegistrationFragment : Fragment() {
         ViewModelProvider(this).get(RegistrationViewModel::class.java)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        val binding = DataBindingUtil.inflate<FragmentAuthRegistrationBinding>(inflater, R.layout.fragment_auth_registration, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val binding = DataBindingUtil.inflate<FragmentAuthRegistrationBinding>(
+            inflater,
+            R.layout.fragment_auth_registration,
+            container,
+            false
+        )
 
         binding.lifecycleOwner = this
         binding.registrationViewmodel = viewModel
@@ -138,11 +140,12 @@ class RegistrationFragment : Fragment() {
         }
 
        viewModel.navigateToMainActivity.observe(viewLifecycleOwner, Observer {
-            if(it == true) {
-                this.findNavController().navigate(RegistrationFragmentDirections.actionAuthActivityToMainActivity())
-                viewModel.doneNavigating()
-            }
-        })
+           if (it == true) {
+               val intent = Intent(activity, MainActivity::class.java)
+               startActivity(intent)
+               viewModel.doneNavigating()
+           }
+       })
 
         binding.toolBarView.setNavigationOnClickListener {
             this.findNavController().navigate(R.id.action_registrationFragment_to_enterSmsFragment)

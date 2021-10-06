@@ -15,68 +15,21 @@
         <fragment
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/homeTab"
-            android:name="com.example.baspana1.main.HomeFragment"
-            app:defaultNavHost="false"
+            android:id="@+id/nav_host_fragment1"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/graph_activity_main"
             />
 
     </FrameLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/overviewTabContainer"
-        android:layout_marginBottom="48dp"
-        android:visibility="invisible">
-
-        <fragment
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/overviewTab"
-            android:name="com.example.baspana1.main.OverviewFragment"
-            app:defaultNavHost="false"/>
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/chatsTabContainer"
-        android:layout_marginBottom="48dp"
-        android:visibility="invisible">
-
-        <fragment
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/chatsTab"
-            android:name="com.example.baspana1.main.ChatsFragment"
-            app:defaultNavHost="false"/>
-
-    </FrameLayout>
-
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/profileTabContainer"
-        android:layout_marginBottom="48dp"
-        android:visibility="invisible">
-
-        <fragment
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/profileTab"
-            android:name="com.example.baspana1.main.ProfileFragment"
-            app:defaultNavHost="false"/>
-
-    </FrameLayout>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:id="@+id/bottomAppBar"
         android:layout_gravity="bottom"
-        app:fabCradleMargin="10dp"
+        app:fabCradleMargin="5dp"
         app:fabCradleRoundedCornerRadius="20dp"
         app:fabCradleVerticalOffset="0dp">
 
@@ -85,9 +38,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:labelVisibilityMode="unlabeled"
-            android:background="@color/transparent"
+            android:background="@drawable/bg_transparent_bottombar"
             app:menu="@menu/menu_main"
-            android:layout_marginEnd="16dp"/>
+            android:layout_marginEnd="16dp"
+            app:itemIconTint="@color/colorGray1" />
 
     </com.google.android.material.bottomappbar.BottomAppBar>
 
