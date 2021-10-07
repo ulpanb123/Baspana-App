@@ -31,18 +31,16 @@ class OverviewFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding : FragmentOverviewBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_overview, container, false)
         val edittext = binding.searchInputLayout
+        val filterIcon = binding.filterImage
         binding.appBarLayout.addOnOffsetChangedListener(object : AppBarLayout.OnOffsetChangedListener{
             override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
                 val percentage : Float = (abs(verticalOffset)/ appBarLayout?.totalScrollRange!!).toFloat()
                 if(abs(verticalOffset) == appBarLayout.totalScrollRange) {
                     edittext.visibility = GONE
+                    binding.toolbarView.setNavigationIcon(R.drawable.ic_home_action_search)
                 }else if(verticalOffset == 0) {
                     edittext.visibility = View.VISIBLE
-                } else {
-                    edittext.visibility = View.VISIBLE
-                    edittext.animate().alpha(percentage)
                 }
-
             }
 
         })

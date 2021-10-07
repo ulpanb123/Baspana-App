@@ -20,13 +20,17 @@
         android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.AppBarLayout
+            android:weightSum="1"
+            android:layout_gravity="top"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="360dp"
+            android:overScrollMode="never"
             android:id="@+id/appBarLayout"
             android:background="@color/colorSecondaryBackground"
             android:elevation="0dp">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:foregroundGravity="top"
                 android:id="@+id/collapsingToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
@@ -47,6 +51,7 @@
                     android:layout_height="56dp"
                     app:contentInsetStartWithNavigation="0dp"
                     app:layout_collapseMode="pin"
+                    android:layout_gravity="top"
                     app:titleMarginStart="110dp"
                     app:navigationIcon="@drawable/ic_favorite" />
 

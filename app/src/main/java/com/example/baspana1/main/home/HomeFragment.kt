@@ -15,6 +15,8 @@ import com.example.baspana1.authorization.registration.RegistrationViewModel
 import com.example.baspana1.databinding.FragmentHomeBinding
 import com.example.baspana1.main.home.adapter.AdvertsAdapter
 import com.example.baspana1.model.adverts.Adverts
+import com.google.android.material.appbar.AppBarLayout
+import java.lang.Math.abs
 
 class HomeFragment : Fragment() {
 
@@ -41,6 +43,17 @@ class HomeFragment : Fragment() {
             adapter = AdvertsAdapter(adverts)
             recyclerView.adapter = adapter
         })
+
+      /*  binding.appBarLayout.addOnOffsetChangedListener(object : AppBarLayout.OnOffsetChangedListener{
+            override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
+                if (appBarLayout != null) {
+                    if(abs(verticalOffset) > appBarLayout.totalScrollRange) {
+                        appBarLayout.se
+                    }
+                }
+            }
+
+        })*/
 
         return binding.root
     }

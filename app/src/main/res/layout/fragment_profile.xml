@@ -1,14 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/progressBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
+    android:background="@color/colorGray6"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarView"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:background="@color/colorMainBackground"
+        android:paddingTop="40dp"
+        app:titleTextAppearance="@font/inter_medium"
+        app:navigationIcon="ic_edit"
+        app:tb_titleToolbar="@string/navigation_profile" />
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_below="@id/toolbarView">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorMainBackground"
+                android:paddingBottom="20dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/avatarImageView"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/colorGray5"
+                    android:scaleType="center"
+                    app:shapeAppearanceOverlay="@style/circledShapeableImageView"
+                    app:srcCompat="@drawable/ic_camera" />
+
+                <TextView
+                    android:id="@+id/userNameTextView"
+                    style="@style/Subtitle1TextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/avatarImageView"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="4dp"
+                    tools:text="Иван Иванов"
+                    android:textColor="@color/colorDarkBlue" />
+
+                <TextView
+                    android:id="@+id/phoneNumberTextView"
+                    style="@style/Subtitle3TextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/userNameTextView"
+                    android:layout_centerHorizontal="true"
+                    tools:text="+7 705 705 7057"
+                    android:textColor="@color/colorGray3" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorMainBackground"
+                    android:text="@string/my_adverts"
+                    style="@style/Body2TextStyle"
+                    android:textColor="@color/colorGray1"
+                    android:gravity="center_vertical"
+                    android:drawableStart="@drawable/ic_profile_buy"
+                    android:drawablePadding="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:drawableEnd="@drawable/arrow" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/colorMainBackground"
+                    android:text="@string/my_docs"
+                    style="@style/Body2TextStyle"
+                    android:textColor="@color/colorGray1"
+                    android:gravity="center_vertical"
+                    android:drawableStart="@drawable/ic_profile_document"
+                    android:drawablePadding="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:drawableEnd="@drawable/arrow" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorMainBackground"
+                    android:text="@string/settings"
+                    style="@style/Body2TextStyle"
+                    android:textColor="@color/colorGray1"
+                    android:gravity="center_vertical"
+                    android:drawableStart="@drawable/ic_profile_setting"
+                    android:drawablePadding="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:drawableEnd="@drawable/arrow" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/colorMainBackground"
+                    android:text="@string/help"
+                    style="@style/Body2TextStyle"
+                    android:textColor="@color/colorGray1"
+                    android:gravity="center_vertical"
+                    android:drawableStart="@drawable/ic_profile_ticket"
+                    android:drawablePadding="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:drawableEnd="@drawable/arrow" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/colorMainBackground"
+                    android:text="@string/user_agreement"
+                    style="@style/Body2TextStyle"
+                    android:textColor="@color/colorGray1"
+                    android:gravity="center_vertical"
+                    android:drawableStart="@drawable/ic_profile_user_agreement"
+                    android:drawablePadding="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:drawableEnd="@drawable/arrow" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/colorMainBackground"
+                    android:text="@string/privateness"
+                    style="@style/Body2TextStyle"
+                    android:textColor="@color/colorGray1"
+                    android:gravity="center_vertical"
+                    android:drawableStart="@drawable/ic_profile_shield"
+                    android:drawablePadding="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:drawableEnd="@drawable/arrow" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorMainBackground"
+                    android:text="@string/exit"
+                    style="@style/Body2TextStyle"
+                    android:textColor="@color/colorGray1"
+                    android:gravity="center_vertical"
+                    android:drawableStart="@drawable/ic_profile_exit"
+                    android:drawablePadding="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </FrameLayout>

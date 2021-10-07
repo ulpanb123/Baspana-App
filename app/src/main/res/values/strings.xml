@@ -28,4 +28,12 @@
     <string name="home_action_consulting">Консультация</string>
     <string name="home_adverts">Обьявления</string>
     <string name="searchHint">Поиск</string>
+    <string name="appBarLayoutBehavior">com.google.android.material.appbar.AppBarLayout.ScrollingViewBehavior</string>
+    <string name="my_adverts">Мои обьявления</string>
+    <string name="my_docs">Мои документы</string>
+    <string name="settings">Настройки</string>
+    <string name="help">Помощь</string>
+    <string name="user_agreement">Пользовательское соглашени</string>
+    <string name="privateness">Конфиденциальность</string>
+    <string name="exit">Выйти</string>
 </resources>
