@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -16,12 +17,13 @@ import com.example.baspana1.databinding.FragmentHomeBinding
 import com.example.baspana1.main.home.adapter.AdvertsAdapter
 import com.example.baspana1.model.adverts.Adverts
 import com.google.android.material.appbar.AppBarLayout
+import kotlinx.android.synthetic.main.fragment_home.*
 import java.lang.Math.abs
 
 class HomeFragment : Fragment() {
 
    private lateinit var recyclerView: RecyclerView
-   private lateinit var adapter : AdvertsAdapter
+   private val adapter =  AdvertsAdapter()
 
    private val viewModel : HomeFragmentViewmodel by lazy {
         ViewModelProvider(this).get(HomeFragmentViewmodel::class.java)
@@ -36,13 +38,29 @@ class HomeFragment : Fragment() {
 
         binding.homeFragmentViewmodel = viewModel
         binding.lifecycleOwner = this
-        recyclerView = binding.homeRecyclerView
+        binding.homeFragmentViewmodel = viewModel
 
-        viewModel.adverts.observe(viewLifecycleOwner, Observer {
-            val adverts = it
-            adapter = AdvertsAdapter(adverts)
-            recyclerView.adapter = adapter
+        binding.homeRecyclerView.adapter = adapter
+
+
+        viewModel.advertsList.observe(this, {
+            adapter.setAdverts(it)
         })
+
+        viewModel.errorMessage.observe(this, {
+            Toast.makeText(this.context, it, Toast.LENGTH_SHORT).show()
+        })
+
+        viewModel.loading.observe(this, Observer {
+            if (it) {
+                shimmerFrameLayout.startShimmer()
+            } else {
+                shimmerFrameLayout.stopShimmer()
+                shimmerFrameLayout.visibility = View.GONE
+            }
+        })
+
+        viewModel.getAdvertsList()
 
       /*  binding.appBarLayout.addOnOffsetChangedListener(object : AppBarLayout.OnOffsetChangedListener{
             override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {

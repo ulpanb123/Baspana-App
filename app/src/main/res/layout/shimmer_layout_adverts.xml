@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_rounded_advert"
+        android:elevation="2dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="156dp"
+            android:background="@color/colorGray4">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/buildingImageView"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="156dp"
+                app:shapeAppearanceOverlay="@style/TopRounded8dpShapeAbleImageView" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/titleTextView"
+                style="@style/Heading3TextStyle"
+                android:layout_width="wrap_content"
+                android:width="130dp"
+                android:layout_height="30dp"
+                android:background="@color/colorGray4"/>
+
+            <TextView
+                android:id="@+id/shortInfoTextView"
+                android:layout_below="@+id/titleTextView"
+                style="@style/Caption1TextStyle"
+                android:layout_marginTop="6dp"
+                android:layout_width="150dp"
+                android:layout_height="15dp"
+                android:background="@color/colorGray4"/>
+
+            <TextView
+                android:id="@+id/addressTextView"
+                android:layout_below="@+id/shortInfoTextView"
+                style="@style/Caption1TextStyle"
+                android:layout_marginTop="6dp"
+                android:layout_width="200dp"
+                android:layout_height="15dp"
+                android:background="@color/colorGray4"/>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

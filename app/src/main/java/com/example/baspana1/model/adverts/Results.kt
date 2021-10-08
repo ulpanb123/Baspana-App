@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Adverts(
         val count: Int,
-        val next: Int?,
+        val next: String?,
         val previous: Int?,
         val results: List<AdvertItem>
 ): Parcelable

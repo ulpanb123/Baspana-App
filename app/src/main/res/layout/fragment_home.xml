@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:mask="http://schemas.android.com/apk/res-auto" >
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:mask="http://schemas.android.com/apk/res-auto" >
     <data>
         <variable
             name="HomeFragmentViewmodel"
             type="com.example.baspana1.main.home.HomeFragmentViewmodel" />
     </data>
 <FrameLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorMainBackground"
@@ -34,31 +33,31 @@
                 android:id="@+id/collapsingToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                app:collapsedTitleTextAppearance="@style/CollapsingToolbarTextAppearanceCollapsed"
-                app:expandedTitleGravity="start"
-                app:expandedTitleTextAppearance="@style/CollapsingToolbarTextAppearanceExpanded"
-                app:expandedTitleMarginStart="16dp"
-                app:expandedTitleMarginBottom="0dp"
+                mask:collapsedTitleTextAppearance="@style/CollapsingToolbarTextAppearanceCollapsed"
+                mask:expandedTitleGravity="start"
+                mask:expandedTitleTextAppearance="@style/CollapsingToolbarTextAppearanceExpanded"
+                mask:expandedTitleMarginStart="16dp"
+                mask:expandedTitleMarginBottom="0dp"
                 android:layout_gravity="center_vertical"
-                app:title="@string/navigation_home"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:contentScrim="@color/colorMainBackground"
-                app:toolbarId="@+id/toolbarView">
+                mask:title="@string/navigation_home"
+                mask:layout_scrollFlags="scroll|exitUntilCollapsed"
+                mask:contentScrim="@color/colorMainBackground"
+                mask:toolbarId="@+id/toolbarView">
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbarView"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
-                    app:contentInsetStartWithNavigation="0dp"
-                    app:layout_collapseMode="pin"
+                    mask:contentInsetStartWithNavigation="0dp"
+                    mask:layout_collapseMode="pin"
                     android:layout_gravity="top"
-                    app:titleMarginStart="110dp"
-                    app:navigationIcon="@drawable/ic_favorite" />
+                    mask:titleMarginStart="110dp"
+                    mask:navigationIcon="@drawable/ic_favorite" />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
             <GridLayout
-                app:layout_scrollFlags="scroll|enterAlways"
+                mask:layout_scrollFlags="scroll|enterAlways"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingLeft="12dp"
@@ -174,33 +173,53 @@
 
 
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="true"
             android:overScrollMode="never"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
+            mask:layout_anchorGravity="center"
+            mask:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
                     style="@style/Heading5OverlineRegularTextStyle"
-                    android:textColor="@color/colorGray3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:padding="16dp"
                     android:text="@string/home_adverts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:textColor="@color/colorGray3" />
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmerFrameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    mask:shimmer_direction="left_to_right"
+                    mask:shimmer_shape="linear">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <include layout="@layout/shimmer_layout_adverts"/>
+
+                    </LinearLayout>
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/homeRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:overScrollMode="never"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+                    mask:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    mask:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
             </LinearLayout>
 
