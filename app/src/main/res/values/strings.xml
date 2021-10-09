@@ -36,4 +36,5 @@
     <string name="user_agreement">Пользовательское соглашени</string>
     <string name="privateness">Конфиденциальность</string>
     <string name="exit">Выйти</string>
+    <string name="network_fail">Нет доступа к сети</string>
 </resources>

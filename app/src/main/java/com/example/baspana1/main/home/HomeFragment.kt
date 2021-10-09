@@ -1,24 +1,21 @@
 package com.example.baspana1.main.home
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.baspana1.R
-import com.example.baspana1.authorization.registration.RegistrationViewModel
 import com.example.baspana1.databinding.FragmentHomeBinding
+import com.example.baspana1.main.NetworkFailFragment
 import com.example.baspana1.main.home.adapter.AdvertsAdapter
-import com.example.baspana1.model.adverts.Adverts
-import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.fragment_home.*
-import java.lang.Math.abs
+
 
 class HomeFragment : Fragment() {
 
@@ -48,7 +45,12 @@ class HomeFragment : Fragment() {
         })
 
         viewModel.errorMessage.observe(this, {
-            Toast.makeText(this.context, it, Toast.LENGTH_SHORT).show()
+            binding.nestedScrollView.visibility = View.GONE
+            binding.networkFailLayout.visibility = View.VISIBLE
+            shimmerFrameLayout.stopShimmer()
+            shimmerFrameLayout.visibility = View.GONE
+            binding.homeActionGrid.visibility = View.GONE
+            binding.advertsTextView.visibility = View.GONE
         })
 
         viewModel.loading.observe(this, Observer {
@@ -76,9 +78,9 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
-
-
-
-
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val childFragment: Fragment = NetworkFailFragment()
+        val transaction: FragmentTransaction = childFragmentManager.beginTransaction()
+        transaction.replace(R.id.network_fail_container, childFragment).commit()
+    }
 }

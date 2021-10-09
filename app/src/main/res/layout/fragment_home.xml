@@ -57,6 +57,7 @@
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
             <GridLayout
+                android:id="@+id/home_action_grid"
                 mask:layout_scrollFlags="scroll|enterAlways"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -171,6 +172,7 @@
             </GridLayout>
         </com.google.android.material.appbar.AppBarLayout>
 
+
         <androidx.core.widget.NestedScrollView
             android:id="@+id/nestedScrollView"
             android:layout_width="match_parent"
@@ -181,11 +183,22 @@
             mask:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:id="@+id/network_fail_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="invisible">
+                    <fragment
+                        android:id="@+id/network_fail_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:name="com.example.baspana1.main.NetworkFailFragment" />
+                </RelativeLayout>
                 <TextView
+                    android:id="@+id/advertsTextView"
                     style="@style/Heading5OverlineRegularTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -219,10 +232,8 @@
                     android:overScrollMode="never"
                     mask:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     mask:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
             </LinearLayout>
-
-        </androidx.core.widget.NestedScrollView>
+            </androidx.core.widget.NestedScrollView>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </FrameLayout>
