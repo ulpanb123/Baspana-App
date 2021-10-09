@@ -37,4 +37,17 @@
     <string name="privateness">Конфиденциальность</string>
     <string name="exit">Выйти</string>
     <string name="network_fail">Нет доступа к сети</string>
+    <string name="string_general_info">Общая информация</string>
+    <string name="string_construction_year">Год постройки</string>
+    <string name="construction_type">Тип недвижимости</string>
+    <string name="string_bathroom">Санузел</string>
+    <string name="living_area">Жилая площадь</string>
+    <string name="kitchen_area">Площадь кухни</string>
+    <string name="advert_hegight">Высота потолков</string>
+    <string name="house_floor">Этажность здания</string>
+    <string name="appn_request">Оставить заявку</string>
+    <string name="string_area">Площадь</string>
+    <string name="string_rooms">Комнат</string>
+    <string name="string_floor">Этаж</string>
+    <string name="string_description">Описание</string>
 </resources>

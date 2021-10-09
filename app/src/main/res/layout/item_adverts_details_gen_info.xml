@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:paddingTop="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="21dp"
+        android:paddingBottom="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/Heading5OverlineRegularTextStyle"
+            android:textColor="@color/colorGray2"
+            android:text="@string/string_general_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/constructionYearTitleTextView"
+                style="@style/Body2TextStyle"
+                android:textColor="@color/colorGray2"
+                android:text="@string/string_construction_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_toEndOf="@+id/constructionYearTitleTextView"
+                android:layout_toStartOf="@+id/constructionYearTextView"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginTop="14dp"
+                android:src="@drawable/bg_dashed_line"
+                android:layerType="software" />
+
+            <TextView
+                android:id="@+id/constructionYearTextView"
+                style="@style/Body2TextStyle"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/colorDarkBlue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="1986" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/constructionTypeTitleTextView"
+                style="@style/Body2TextStyle"
+                android:textColor="@color/colorGray2"
+                android:text="@string/construction_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_toEndOf="@+id/constructionTypeTitleTextView"
+                android:layout_toStartOf="@+id/constructionTypeTextView"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginTop="14dp"
+                android:src="@drawable/bg_dashed_line"
+                android:layerType="software" />
+
+            <TextView
+                android:id="@+id/constructionTypeTextView"
+                style="@style/Body2TextStyle"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/colorDarkBlue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Дом" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/bathroomTitleTextView"
+                style="@style/Body2TextStyle"
+                android:textColor="@color/colorGray2"
+                android:text="@string/string_bathroom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_toEndOf="@+id/bathroomTitleTextView"
+                android:layout_toStartOf="@+id/bathroomTextView"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginTop="14dp"
+                android:src="@drawable/bg_dashed_line"
+                android:layerType="software" />
+
+            <TextView
+                android:id="@+id/bathroomTextView"
+                style="@style/Body2TextStyle"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/colorDarkBlue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="2 совмещенных" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="21dp"
+        android:paddingBottom="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/Heading5OverlineRegularTextStyle"
+            android:textColor="@color/colorGray2"
+            android:text="@string/string_general_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/livingAreaTitleTextView"
+                style="@style/Body2TextStyle"
+                android:textColor="@color/colorGray2"
+                android:text="@string/living_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_toEndOf="@+id/livingAreaTitleTextView"
+                android:layout_toStartOf="@+id/livingAreaTextView"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginTop="14dp"
+                android:src="@drawable/bg_dashed_line"
+                android:layerType="software" />
+
+            <TextView
+                android:id="@+id/livingAreaTextView"
+                style="@style/Body2TextStyle"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/colorDarkBlue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="100 м2" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/kitchenAreaTitleTextView"
+                style="@style/Body2TextStyle"
+                android:textColor="@color/colorGray2"
+                android:text="@string/kitchen_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_toEndOf="@+id/kitchenAreaTitleTextView"
+                android:layout_toStartOf="@+id/kitchenAreaTextView"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginTop="14dp"
+                android:src="@drawable/bg_dashed_line"
+                android:layerType="software" />
+
+            <TextView
+                android:id="@+id/kitchenAreaTextView"
+                style="@style/Body2TextStyle"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/colorDarkBlue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="20 м2" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/heightTextTitleView"
+                style="@style/Body2TextStyle"
+                android:textColor="@color/colorGray2"
+                android:text="@string/advert_hegight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_toEndOf="@+id/heightTextTitleView"
+                android:layout_toStartOf="@+id/heightTextView"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginTop="14dp"
+                android:src="@drawable/bg_dashed_line"
+                android:layerType="software" />
+
+            <TextView
+                android:id="@+id/heightTextView"
+                style="@style/Body2TextStyle"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/colorDarkBlue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="3,2 м" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/houseFloorTitleTextView"
+                style="@style/Body2TextStyle"
+                android:textColor="@color/colorGray2"
+                android:text="@string/house_floor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_toEndOf="@+id/houseFloorTitleTextView"
+                android:layout_toStartOf="@+id/houseFloorTextView"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginTop="14dp"
+                android:src="@drawable/bg_dashed_line"
+                android:layerType="software" />
+
+            <TextView
+                android:id="@+id/houseFloorTextView"
+                style="@style/Body2TextStyle"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/colorDarkBlue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="12 этажей" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

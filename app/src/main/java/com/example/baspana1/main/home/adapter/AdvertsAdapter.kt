@@ -2,11 +2,13 @@ package com.example.baspana1.main.home.adapter
 
 import android.os.Build
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.graphics.drawable.toDrawable
+import androidx.core.graphics.toColor
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -14,6 +16,7 @@ import com.example.baspana1.R
 import com.example.baspana1.databinding.ItemAdvertsBinding
 import com.example.baspana1.generated.callback.OnClickListener
 import com.example.baspana1.model.adverts.AdvertItem
+import kotlinx.android.synthetic.main.item_adverts.view.*
 import java.text.NumberFormat
 import java.util.*
 
@@ -47,8 +50,11 @@ class AdvertsAdapter(private val onClick: (AdvertItem) -> Unit) : RecyclerView.A
             onClick(advert)
         }
         holder.binding.favoriteButton.setOnClickListener {
-            it.setBackgroundDrawable(R.drawable.ic_favorite_pressed.toDrawable())
+            if(it.id == R.id.favorite_button) {
+                it.setBackgroundDrawable(R.drawable.ic_favorite_pressed.toDrawable())
+            }
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdvertsAdapter.AdvertsViewholder {
