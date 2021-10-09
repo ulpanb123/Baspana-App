@@ -6,21 +6,22 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.core.graphics.drawable.toDrawable
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.baspana1.R
 import com.example.baspana1.databinding.ItemAdvertsBinding
+import com.example.baspana1.generated.callback.OnClickListener
 import com.example.baspana1.model.adverts.AdvertItem
 import java.text.NumberFormat
 import java.util.*
 
-class AdvertsAdapter : RecyclerView.Adapter<AdvertsAdapter.AdvertsViewholder>() {
+class AdvertsAdapter(private val onClick: (AdvertItem) -> Unit) : RecyclerView.Adapter<AdvertsAdapter.AdvertsViewholder>() {
 
     private var adverts = mutableListOf<AdvertItem>()
 
     class AdvertsViewholder(val binding: ItemAdvertsBinding) : RecyclerView.ViewHolder(binding.root)  {
-
     }
 
     fun setAdverts(adverts: List<AdvertItem>) {
@@ -42,6 +43,12 @@ class AdvertsAdapter : RecyclerView.Adapter<AdvertsAdapter.AdvertsViewholder>() 
         holder.binding.addressTextView.text = "${advert.address}, " +
                 "${advert.region.name}, " +
                 "${advert.city.name}"
+        holder.binding.titleTextView.setOnClickListener {
+            onClick(advert)
+        }
+        holder.binding.favoriteButton.setOnClickListener {
+            it.setBackgroundDrawable(R.drawable.ic_favorite_pressed.toDrawable())
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdvertsAdapter.AdvertsViewholder {
@@ -73,5 +80,10 @@ class AdvertsAdapter : RecyclerView.Adapter<AdvertsAdapter.AdvertsViewholder>() 
         val newPrice = format.format(price.toInt())
         textView.text = newPrice
     }
+
+
+
+
+
 
 }

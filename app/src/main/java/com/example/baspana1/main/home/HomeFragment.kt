@@ -9,20 +9,27 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.RecyclerView
+import androidx.navigation.fragment.findNavController
 import com.example.baspana1.R
 import com.example.baspana1.databinding.FragmentHomeBinding
 import com.example.baspana1.main.NetworkFailFragment
 import com.example.baspana1.main.home.adapter.AdvertsAdapter
+import com.example.baspana1.model.adverts.AdvertItem
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
 class HomeFragment : Fragment() {
 
-   private lateinit var recyclerView: RecyclerView
-   private val adapter =  AdvertsAdapter()
+   private val adapter =  AdvertsAdapter{ advert ->
+       adapterOnClick(advert)
+   }
 
-   private val viewModel : HomeFragmentViewmodel by lazy {
+    private fun adapterOnClick(advert: AdvertItem) {
+        val advertId = advert.id
+        this.findNavController().navigate(HomeFragmentDirections.actionFromHomeToDetails())
+    }
+
+    private val viewModel : HomeFragmentViewmodel by lazy {
         ViewModelProvider(this).get(HomeFragmentViewmodel::class.java)
     }
 
@@ -35,7 +42,6 @@ class HomeFragment : Fragment() {
 
         binding.homeFragmentViewmodel = viewModel
         binding.lifecycleOwner = this
-        binding.homeFragmentViewmodel = viewModel
 
         binding.homeRecyclerView.adapter = adapter
 

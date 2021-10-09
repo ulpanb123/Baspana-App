@@ -1,14 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ChatsFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<layout xmlns:mask="http://schemas.android.com/apk/res-auto" >
+    <data>
+        <variable
+            name="ChatsViewModel"
+            type="com.example.baspana1.main.chats.ChatsViewModel" />
+    </data>
+    <FrameLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/colorMainBackground"
+        tools:context=".main.chats.ChatsFragment">
 
-</FrameLayout>
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/appBarLayout"
+                android:background="@color/colorSecondaryBackground"
+                android:elevation="0dp">
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:id="@+id/collapsingToolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    app:collapsedTitleGravity="center"
+                    app:collapsedTitleTextAppearance="@style/CollapsingToolbarTextAppearanceCollapsed"
+                    app:expandedTitleGravity="start"
+                    app:expandedTitleTextAppearance="@style/CollapsingToolbarTextAppearanceExpanded"
+                    app:expandedTitleMarginStart="16dp"
+                    app:expandedTitleMarginBottom="0dp"
+                    android:layout_gravity="center_vertical"
+                    app:title="@string/navigation_chats"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                    app:contentScrim="@color/colorMainBackground"
+                    app:toolbarId="@+id/toolbarView">
+
+
+                    <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbarView"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        app:contentInsetStartWithNavigation="0dp"
+                        app:layout_collapseMode="pin"
+                        android:textAlignment="center"
+                        app:collapseIcon="@drawable/ic_home_action_search"
+                        app:menu="@menu/empty_menu"
+                        />
+
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
+                    android:id="@+id/searchInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:background="@drawable/bg_selector_edit_text"
+                    android:gravity="center"
+                    android:hint="@string/searchHint"
+                    android:textColorHint="@color/colorGray3"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintEnabled="true"
+                    app:hintTextColor="@color/colorGray3">
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:drawableLeft="@android:drawable/ic_menu_search"
+                        android:padding="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="-2dp"
+                        android:id="@+id/nameInputEditText"
+                        style="@style/Body1TextStyle"
+                        android:background="@android:color/transparent"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapSentences"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textColorHighlight="@color/colorGray3"
+                        android:textCursorDrawable="@null" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.appbar.AppBarLayout>
+
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nestedScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:overScrollMode="never"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="9dp" />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/overviewRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:overScrollMode="never"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </FrameLayout>
+</layout>

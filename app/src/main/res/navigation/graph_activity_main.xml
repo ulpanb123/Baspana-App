@@ -9,7 +9,17 @@
         android:id="@+id/homeFragment"
         android:name="com.example.baspana1.main.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_from_home_to_details"
+            app:destination="@id/detailsFragment">
+            <argument
+                android:name="advertId"
+                android:defaultValue="0" />
+        </action>
+
+    </fragment>
+
     <fragment
         android:id="@+id/overviewFragment"
         android:name="com.example.baspana1.main.overview.OverviewFragment"
@@ -25,4 +35,13 @@
         android:name="com.example.baspana1.main.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.baspana1.main.DetailsFragment"
+        android:label="DetailsFragment" >
+        <argument
+            android:name="advertId"
+            app:argType="integer"
+            android:defaultValue="0"/>
+    </fragment>
 </navigation>

@@ -4,7 +4,11 @@
         <variable
             name="properties"
             type="com.example.baspana1.model.adverts.Adverts" />
+        <variable
+            name="homeViewmodel"
+            type="com.example.baspana1.main.home.HomeFragmentViewmodel" />
     </data>
+   
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -13,6 +17,7 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
+        android:id="@+id/advert_layout"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="260dp"
@@ -71,11 +76,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <ImageButton
+                android:id="@+id/favorite_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/ic_favorite"/>
+
+
             <TextView
                 android:id="@+id/titleTextView"
                 style="@style/Heading3TextStyle"
                 android:textColor="@color/colorPrimaryText"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="45 000 000 ₸" />
 
