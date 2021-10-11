@@ -11,23 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/splashScreenTheme">
-        <activity android:name=".LaunchActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".authorization.AuthorizationActivity"
             android:screenOrientation="portrait">
             <nav-graph android:value="@navigation/graph_activity_auth" />
-
-
         </activity>
         <activity android:name=".main.MainActivity"
             android:screenOrientation="portrait">
             <nav-graph android:value="@navigation/graph_activity_main" />
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
 
     </application>
