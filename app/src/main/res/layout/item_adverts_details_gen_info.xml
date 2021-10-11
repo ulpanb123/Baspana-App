@@ -1,10 +1,226 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout
     android:orientation="vertical"
     android:paddingTop="12dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/imagesRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="226dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <LinearLayout
+            android:id="@+id/pagerIndicatorContainer"
+            android:layout_below="@+id/imagesRecyclerView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-20dp"
+            android:padding="4dp"
+            android:background="@color/colorWhiteWithTwentyPercentAlpha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ru.tinkoff.scrollingpagerindicator.ScrollingPagerIndicator
+                android:id="@+id/dotsIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:spi_dotSize="8dp"
+                app:spi_dotSelectedSize="8dp"
+                app:spi_dotColor="@color/colorGray4"
+                app:spi_dotSelectedColor="@color/white"
+                app:spi_dotSpacing="8dp"
+                app:spi_visibleDotCount="7" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/priceTextView"
+            style="@style/Heading1TextStyle"
+            android:layout_below="@+id/imagesRecyclerView"
+            android:textColor="@color/colorPrimaryText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            tools:text="45 000 000 ₸" />
+
+        <!--    <TextView-->
+        <!--        android:id="@+id/updatedAtTextView"-->
+        <!--        style="@style/Caption1TextStyle"-->
+        <!--        android:layout_below="@+id/imagesRecyclerView"-->
+        <!--        android:layout_alignParentEnd="true"-->
+        <!--        android:textColor="@color/colorPrimaryText"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_marginTop="@dimen/dp_25"-->
+        <!--        android:layout_marginEnd="@dimen/dp_16"-->
+        <!--        tools:text="Сегодня в 22:05" />-->
+
+        <TextView
+            android:id="@+id/locationTextView"
+            style="@style/Subtitle2TextStyle"
+            android:layout_below="@+id/priceTextView"
+            android:textColor="@color/colorGray2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            tools:text="Назарбаева 49, Каратауский р-н, Шымкент" />
+
+        <com.kusu.loadingbutton.LoadingButton
+            android:id="@+id/appnButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="16dp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="@string/appn_request"
+            android:includeFontPadding="false"
+            android:enabled="true"
+            style="@style/Button1TextStyle"
+            android:backgroundTint="@color/colorButtonPrimary"
+            app:lb_loaderColor="@color/black"
+            app:lb_isShadowEnable="false"
+            app:lb_cornerRadius="8dp"
+            android:layout_below="@id/locationTextView"/>
+
+        <View
+            android:id="@+id/firstDivider"
+            android:layout_below="@+id/appnButton"
+            android:background="@color/colorStroke"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <LinearLayout
+            android:id="@+id/gridsLayout"
+            android:layout_below="@+id/firstDivider"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/Subtitle3TextStyle"
+                    android:text="@string/string_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/areaTextView"
+                    style="@style/Heading2TextStyle"
+                    android:textColor="@color/colorPrimaryText"
+                    android:layout_marginTop="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="120 м2" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/Subtitle3TextStyle"
+                    android:text="@string/string_rooms"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/roomsTextView"
+                    style="@style/Heading2TextStyle"
+                    android:textColor="@color/colorPrimaryText"
+                    android:layout_marginTop="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="5" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/Subtitle3TextStyle"
+                    android:text="@string/string_floor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/floorTextView"
+                    style="@style/Heading2TextStyle"
+                    android:textColor="@color/colorPrimaryText"
+                    android:layout_marginTop="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="2/9" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/gridsDivider"
+            android:layout_below="@+id/gridsLayout"
+            android:background="@color/colorStroke"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <TextView
+            android:id="@+id/descriptionHeaderTextView"
+            android:layout_below="@+id/gridsDivider"
+            style="@style/Heading5OverlineRegularTextStyle"
+            android:textColor="@color/colorGray2"
+            android:text="@string/string_description"
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/descriptionTextView"
+            android:layout_below="@+id/descriptionHeaderTextView"
+            style="@style/Subtitle2TextStyle"
+            android:textColor="@color/colorPrimaryText"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_below="@+id/descriptionTextView"
+            android:background="@color/colorStroke"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+    </RelativeLayout>
 
     <LinearLayout
         android:orientation="vertical"
@@ -277,3 +493,4 @@
     </LinearLayout>
 
 </LinearLayout>
+</layout>
