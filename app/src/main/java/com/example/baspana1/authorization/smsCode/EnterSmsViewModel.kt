@@ -39,6 +39,8 @@ class EnterSmsViewModel : ViewModel() {
         _navigateToRegistration.value = otp
         uiScope.launch {
             val verifyRequest  = VerifyUserRequest(phoneNumber, otp)
+            AppPreferences.userPhone = phoneNumber
+            AppPreferences.userOtp = otp
             try {
                 val verifiedUser  = BaspanaApi.retrofitService.makeVerifyUser(verifyRequest)
                 AppPreferences.accessToken = verifiedUser.access

@@ -23,8 +23,16 @@ object AppPreferences {
         get() = Key.REFRESH.getString()
         set(value) = Key.REFRESH.setString(value)
 
+    var userPhone: String?
+        get() = Key.USERPHONE.getString()
+        set(value) = Key.USERPHONE.setString(value)
+
+    var userOtp : String?
+        get() = Key.USEROTP.getString()
+        set(value) = Key.USEROTP.setString(value)
+
     private enum class Key {
-        ACCESS, REFRESH; // TODO step 3: replace these cases with your stored values keys
+        ACCESS, REFRESH, USERPHONE, USEROTP; // TODO step 3: replace these cases with your stored values keys
 
         fun getString(): String? = if (sharedPreferences!!.contains(name)) sharedPreferences!!.getString(name, "") else null
 
