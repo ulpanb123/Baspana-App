@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/graph_activity_main"
@@ -13,9 +14,6 @@
         <action
             android:id="@+id/action_from_home_to_details"
             app:destination="@id/detailsFragment">
-            <argument
-                android:name="advertId"
-                android:defaultValue="0" />
         </action>
 
     </fragment>
@@ -24,23 +22,30 @@
         android:id="@+id/overviewFragment"
         android:name="com.example.baspana1.main.overview.OverviewFragment"
         android:label="fragment_overview"
-        tools:layout="@layout/fragment_overview" />
+        tools:layout="@layout/fragment_overview" >
+        <action
+            android:id="@+id/action_from_overview_to_details"
+            app:destination="@id/detailsFragment">
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/chatsFragment"
         android:name="com.example.baspana1.main.chats.ChatsFragment"
         android:label="fragment_chats"
         tools:layout="@layout/fragment_chats" />
+
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.baspana1.main.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.example.baspana1.main.DetailsFragment"
         android:label="DetailsFragment" >
         <argument
-            android:name="advertId"
+            android:name="itemId"
             app:argType="integer"
             android:defaultValue="0"/>
     </fragment>

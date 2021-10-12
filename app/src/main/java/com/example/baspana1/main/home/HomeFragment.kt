@@ -25,8 +25,8 @@ class HomeFragment : Fragment() {
    }
 
     private fun adapterOnClick(advert: AdvertItem) {
-        val advertId = advert.id
-        this.findNavController().navigate(HomeFragmentDirections.actionFromHomeToDetails())
+        val advertId : Int = advert.id
+        this.findNavController().navigate(HomeFragmentDirections.actionFromHomeToDetails(advertId))
     }
 
     private val viewModel : HomeFragmentViewmodel by lazy {

@@ -34,7 +34,7 @@ class AdvertsAdapter(private val onClick: (AdvertItem) -> Unit) : RecyclerView.A
 
 
     @RequiresApi(Build.VERSION_CODES.N)
-    override fun onBindViewHolder(holder: AdvertsAdapter.AdvertsViewholder, position: Int) {
+    override fun onBindViewHolder(holder: AdvertsViewholder, position: Int) {
         val advert = adverts[position]
         bindImage(holder.binding.buildingImageView, advert.images[0].image)
         holder.binding.createdDateTextView.text = advert.created_at.subSequence(0, 10)

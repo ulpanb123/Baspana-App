@@ -23,12 +23,6 @@ class EnterSmsFragment : Fragment() {
     private val viewModel : EnterSmsViewModel by lazy {
         ViewModelProvider(this).get(EnterSmsViewModel::class.java)
     }
-    private val sharedPrefKey = "UserInfo";
-    private val authenticatedKey = "IsAuthenticated";
-    private val completedKey = "IsCompleted";
-    private val accessKey = "AccessKey";
-    private val refreshKey = "RefreshKey"
-    val myPrefs : SharedPreferences? = activity?.getPreferences(Context.MODE_PRIVATE)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -56,7 +50,6 @@ class EnterSmsFragment : Fragment() {
         smsCodeView.doAfterTextChanged {
             if(it?.length == 4) {
                 viewModel.otp = it.toString()
-                Log.d("debug", viewModel.phoneNumber + "\n"+ viewModel.otp)
                 viewModel.onOtpEntered()
             }
         }

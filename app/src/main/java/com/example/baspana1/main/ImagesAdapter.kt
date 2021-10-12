@@ -9,25 +9,26 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.baspana1.R
 import com.example.baspana1.databinding.ItemAdvertDetailsHeaderImageBinding
 import com.example.baspana1.databinding.ItemAdvertsDetailsGenInfoBinding
+import com.example.baspana1.model.adverts.AdvertItemImage
 
 class ImagesAdapter : RecyclerView.Adapter<ImagesAdapter.AdvertImageViewholder>() {
     class AdvertImageViewholder(val binding : ItemAdvertDetailsHeaderImageBinding) : RecyclerView.ViewHolder(binding.root)
 
-    private var images = mutableListOf<String>()
+    private var images = mutableListOf<AdvertItemImage>()
 
-    fun setImages(images : List<String>) {
+    fun setImages(images : List<AdvertItemImage>) {
         this.images = images.toMutableList()
         notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return images.size
     }
 
 
 
     override fun onBindViewHolder(holder: AdvertImageViewholder, position: Int) {
-        bindImage(holder.binding.headerImageView, images[position])
+        bindImage(holder.binding.headerImageView, images[position].image)
     }
 
     fun bindImage(imgView: ImageView, imgUrl: String?) {

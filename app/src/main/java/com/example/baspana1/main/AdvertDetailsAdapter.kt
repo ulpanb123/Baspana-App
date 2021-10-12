@@ -1,11 +1,15 @@
 package com.example.baspana1.main
 
+import android.media.Image
 import android.os.Build
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -16,36 +20,39 @@ import com.example.baspana1.databinding.ItemAdvertsBinding
 import com.example.baspana1.databinding.ItemAdvertsDetailsGenInfoBinding
 import com.example.baspana1.main.home.adapter.AdvertsAdapter
 import com.example.baspana1.model.adverts.AdvertItem
+import com.example.baspana1.model.adverts.AdvertItemImage
 import java.text.NumberFormat
 import java.util.*
 
 class AdvertDetailsAdapter : RecyclerView.Adapter<AdvertDetailsAdapter.AdvertGenInfo>(){
 
-    private lateinit var chosenAdvert : AdvertItem
+    private var adverts = mutableListOf<AdvertItem>()
 
     class AdvertGenInfo(val binding : ItemAdvertsDetailsGenInfoBinding) : RecyclerView.ViewHolder(binding.root)
 
-    fun setAdvert(advert : AdvertItem) {
-        this.chosenAdvert = advert
+    fun setAdvert(adverts : MutableList<AdvertItem>) {
+        this.adverts = adverts
         notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return adverts.size
     }
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdvertGenInfo {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemAdvertsDetailsGenInfoBinding.inflate(inflater, parent, false)
-        return AdvertDetailsAdapter.AdvertGenInfo(binding)
+        return AdvertGenInfo(binding)
     }
+
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onBindViewHolder(holder: AdvertGenInfo, position: Int) {
+        val chosenAdvert = adverts[position]
+        bindImage(holder.binding.imagesRecyclerView, chosenAdvert.images)
         bindPrice(holder.binding.priceTextView, chosenAdvert.price)
         holder.binding.locationTextView.text = "${chosenAdvert.address}, " +
-                "${chosenAdvert.region.name}, " +
+                "${chosenAdvert.region}, " +
                 "${chosenAdvert.city.name}"
         holder.binding.areaTextView.text = chosenAdvert.total_area.toString()
         holder.binding.roomsTextView.text = chosenAdvert.room_count.toString()
@@ -70,9 +77,10 @@ class AdvertDetailsAdapter : RecyclerView.Adapter<AdvertDetailsAdapter.AdvertGen
         textView.text = newPrice
     }
 
-    fun bindImage(imagesRecyclerView: RecyclerView, images : List<String?>) {
-        imagesRecyclerView.adapter = ImagesAdapter()
-
+    fun bindImage(imagesRecyclerView: RecyclerView, images : List<AdvertItemImage>) {
+        val adapter = ImagesAdapter()
+        imagesRecyclerView.adapter = adapter
+        adapter.setImages(images)
 
     }
 

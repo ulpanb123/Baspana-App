@@ -1,6 +1,5 @@
 package com.example.baspana1.main.overview
 
-import android.opengl.Visibility
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,7 +13,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.baspana1.R
 import com.example.baspana1.databinding.FragmentOverviewBinding
 import com.example.baspana1.main.home.HomeFragmentDirections
-import com.example.baspana1.main.home.HomeFragmentViewmodel
 import com.example.baspana1.main.home.adapter.AdvertsAdapter
 import com.example.baspana1.model.adverts.AdvertItem
 import com.google.android.material.appbar.AppBarLayout
@@ -43,7 +41,7 @@ class OverviewFragment : Fragment() {
 
     private fun adapterOnClick(advert: AdvertItem) {
         val advertId = advert.id
-        this.findNavController().navigate(HomeFragmentDirections.actionFromHomeToDetails())
+        this.findNavController().navigate(OverviewFragmentDirections.actionFromOverviewToDetails(advertId))
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
