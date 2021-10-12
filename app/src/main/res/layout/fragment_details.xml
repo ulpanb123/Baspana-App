@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-    <FrameLayout
+    <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/progressBarLayout"
@@ -9,12 +9,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="hey"
-            android:textSize="100sp"
-            />
+            android:id="@+id/advertImagesRecyclerView"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/advertDetailsRecyclerView"
@@ -24,5 +24,5 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 
-    </FrameLayout>
+    </LinearLayout>
 </layout>

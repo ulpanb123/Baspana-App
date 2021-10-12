@@ -20,7 +20,8 @@ class DetailsFragment : Fragment() {
     }
     private lateinit var binding : FragmentDetailsBinding
 
-    private val adapter = AdvertDetailsAdapter()
+    private val adapterInfo = AdvertDetailsAdapter()
+    private val adapterImage = ImagesAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,7 +29,8 @@ class DetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_details, container, false)
-        binding.advertDetailsRecyclerView.adapter = adapter
+        binding.advertDetailsRecyclerView.adapter = adapterInfo
+        binding.advertImagesRecyclerView.adapter = adapterImage
 
         val args = arguments
         val itemId = args!!.getInt("itemId", 0)
@@ -41,7 +43,8 @@ class DetailsFragment : Fragment() {
         viewmodel.advertItem.observe(this, Observer {
             val chosenAdvert = mutableListOf<AdvertItem>()
             chosenAdvert[0] = it
-            adapter.setAdvert(chosenAdvert)
+            adapterInfo.setAdvert(chosenAdvert)
+            adapterImage.setImages(it.images)
         })
 
         return binding.root

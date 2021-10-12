@@ -49,7 +49,6 @@ class AdvertDetailsAdapter : RecyclerView.Adapter<AdvertDetailsAdapter.AdvertGen
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onBindViewHolder(holder: AdvertGenInfo, position: Int) {
         val chosenAdvert = adverts[position]
-        bindImage(holder.binding.imagesRecyclerView, chosenAdvert.images)
         bindPrice(holder.binding.priceTextView, chosenAdvert.price)
         holder.binding.locationTextView.text = "${chosenAdvert.address}, " +
                 "${chosenAdvert.region}, " +
@@ -77,11 +76,5 @@ class AdvertDetailsAdapter : RecyclerView.Adapter<AdvertDetailsAdapter.AdvertGen
         textView.text = newPrice
     }
 
-    fun bindImage(imagesRecyclerView: RecyclerView, images : List<AdvertItemImage>) {
-        val adapter = ImagesAdapter()
-        imagesRecyclerView.adapter = adapter
-        adapter.setImages(images)
-
-    }
 
 }
