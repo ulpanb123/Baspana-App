@@ -42,7 +42,8 @@ class DetailsFragment : Fragment() {
 
         viewmodel.advertItem.observe(this, Observer {
             val chosenAdvert = mutableListOf<AdvertItem>()
-            chosenAdvert[0] = it
+            chosenAdvert.add(it)
+         //   chosenAdvert[0] = it
             adapterInfo.setAdvert(chosenAdvert)
             adapterImage.setImages(it.images)
         })
