@@ -23,7 +23,7 @@ The app is useful for:
 
 ## Demo
 <p align="center">
-<img src="Screen_overview.gif" width="400" height="800" align="center">
+<img src="Screen_overview.gif" width="300" height="650" align="center">
 </p>
 
 
