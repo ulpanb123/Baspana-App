@@ -60,9 +60,9 @@
                         android:layout_height="56dp"
                         app:contentInsetStartWithNavigation="0dp"
                         app:layout_collapseMode="pin"
-                        android:textAlignment="center"
                         app:collapseIcon="@drawable/ic_home_action_search"
                         app:menu="@menu/empty_menu"
+                        android:textAlignment="center"
                         />
 
                 </com.google.android.material.appbar.CollapsingToolbarLayout>

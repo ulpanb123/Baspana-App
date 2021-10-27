@@ -40,7 +40,7 @@ class DetailsFragment : Fragment() {
         viewmodel.itemId = itemId
         viewmodel.getAdvertItemInfo(itemId)
 
-        viewmodel.advertItem.observe(this, Observer {
+        viewmodel.advertItem.observe(viewLifecycleOwner, Observer {
             val chosenAdvert = mutableListOf<AdvertItem>()
             chosenAdvert.add(it)
          //   chosenAdvert[0] = it

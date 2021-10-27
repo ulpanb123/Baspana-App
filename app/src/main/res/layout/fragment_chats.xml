@@ -39,7 +39,7 @@
                     android:layout_gravity="center_vertical"
                     app:title="@string/navigation_chats"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                    app:contentScrim="@color/colorMainBackground"
+                    app:contentScrim="@color/colorSecondaryBackground"
                     app:toolbarId="@+id/toolbarView">
 
 
@@ -111,14 +111,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="9dp" />
 
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/overviewRecyclerView"
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:overScrollMode="never"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:text="@string/no_chats_string"
+                        style="@style/Subtitle2TextStyle"/>
 
                 </LinearLayout>
 

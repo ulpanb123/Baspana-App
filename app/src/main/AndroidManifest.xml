@@ -1,29 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.baspana1">
-    
-    <uses-permission android:name="android.permission.INTERNET"/>
+package="com.example.baspana1">
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/splashScreenTheme">
-        <activity android:name=".authorization.AuthorizationActivity"
-            android:screenOrientation="portrait">
-            <nav-graph android:value="@navigation/graph_activity_auth" />
-        </activity>
-        <activity android:name=".main.MainActivity"
-            android:screenOrientation="portrait">
-            <nav-graph android:value="@navigation/graph_activity_main" />
-            <intent-filter>
-                 <action android:name="android.intent.action.MAIN" />
-                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+<uses-permission android:name="android.permission.INTERNET" />
 
-    </application>
+<application
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/splashScreenTheme">
+    <activity android:name=".LauncherActivity"
+        android:screenOrientation="portrait">
+
+    </activity>
+    <activity
+        android:name=".authorization.AuthorizationActivity"
+        android:screenOrientation="portrait">
+        <nav-graph android:value="@navigation/graph_activity_auth" />
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity
+        android:name=".main.MainActivity"
+        android:screenOrientation="portrait">
+        <nav-graph android:value="@navigation/graph_activity_main" />
+
+    </activity>
+
+</application>
 
 </manifest>
+
+

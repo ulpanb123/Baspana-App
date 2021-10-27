@@ -50,4 +50,5 @@
     <string name="string_rooms">Комнат</string>
     <string name="string_floor">Этаж</string>
     <string name="string_description">Описание</string>
+    <string name="no_chats_string">У вас пока нет чатов.</string>
 </resources>

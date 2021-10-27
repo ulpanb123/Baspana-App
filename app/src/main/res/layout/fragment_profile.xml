@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:mask="http://schemas.android.com/apk/res-auto">
+
+<FrameLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/progressBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,13 +16,19 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         app:menu="@menu/profile_menu"
-        app:titleTextAppearance="@font/inter_medium"
-        android:layout_marginBottom="8dp"/>
+        style="@style/CollapsingToolbarTextAppearanceCollapsed"
+        app:title="Профиль"
+        android:layout_gravity="top"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorMainBackground"
+        android:elevation="2dp"
+        app:titleMarginStart="120dp"
+        />
 
     <androidx.core.widget.NestedScrollView
+        android:layout_marginTop="56dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/toolbarView">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,6 +61,7 @@
                     android:layout_below="@id/avatarImageView"
                     android:layout_centerHorizontal="true"
                     android:layout_marginBottom="4dp"
+                    android:visibility="visible"
                     tools:text="Иван Иванов"
                     android:textColor="@color/colorDarkBlue" />
 
@@ -62,6 +72,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/userNameTextView"
                     android:layout_centerHorizontal="true"
+                    android:visibility="visible"
                     tools:text="+7 705 705 7057"
                     android:textColor="@color/colorGray3" />
             </RelativeLayout>
@@ -180,3 +191,4 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </FrameLayout>
+</layout>
