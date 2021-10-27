@@ -51,7 +51,7 @@ class AdvertDetailsAdapter : RecyclerView.Adapter<AdvertDetailsAdapter.AdvertGen
         val chosenAdvert = adverts[position]
         bindPrice(holder.binding.priceTextView, chosenAdvert.price)
         holder.binding.locationTextView.text = "${chosenAdvert.address}, " +
-                "${chosenAdvert.region.name}, " +
+                "${chosenAdvert.region.name.toString()}, " +
                 "${chosenAdvert.city.name}"
         holder.binding.areaTextView.text = chosenAdvert.total_area.toString()
         holder.binding.roomsTextView.text = chosenAdvert.room_count.toString()

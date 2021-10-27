@@ -22,7 +22,7 @@
         android:layout_marginBottom="8dp"
         android:background="@color/colorMainBackground"
         android:elevation="2dp"
-        app:titleMarginStart="120dp"
+        app:titleMarginStart="150dp"
         />
 
     <androidx.core.widget.NestedScrollView
