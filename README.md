@@ -14,11 +14,13 @@ The app is useful for:
 
 **Language:** Kotlin
 
-**Framework:** Android UI
+**Framework:** Native Android UI
+
+* **Android Jetpack** architecture components were used
 
 ## Libraries
 - [Glide](https://github.com/bumptech/glide)
-- [Retrofit](https://square.github.io/retrofit/)
+- [Retrofit](https://square.github.io/retrofit/), [okhttp](https://square.github.io/okhttp/)
 - [Moshi](https://github.com/square/moshi)
 
 ## Demo
